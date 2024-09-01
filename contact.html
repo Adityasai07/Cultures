@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 80%;
+            max-width: 1200px;
+            margin: 50px auto;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 40px;
+        }
+
+        .contact-card {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .member {
+            background-color: #fff;
+            padding: 20px;
+            margin: 10px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s;
+            width: 300px;
+            position: relative;
+        }
+
+        .member h2 {
+            color: #333;
+        }
+
+        .member p {
+            color: #666;
+        }
+
+        button {
+            background-color: #5cb85c;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 10px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #4cae4c;
+        }
+
+        .member:hover {
+            transform: scale(1.05);
+        }
+
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            max-width: 400px;
+            text-align: left;
+        }
+
+        .popup.active {
+            display: block;
+        }
+
+        .popup .close {
+            cursor: pointer;
+            color: #888;
+            float: right;
+            font-size: 18px;
+        }
+
+        .popup .close:hover {
+            color: #333;
+        }
+
+        .home-button {
+            background-color: #0275d8;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            transition: background-color 0.3s;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        .home-button:hover {
+            background-color: #025aa5;
+        }
+    </style>
+</head>
+<body>
+    <a href="Cultures.html" class="home-button">Home</a>
+    
+    <div class="container">
+        <h1>Contact Our Team</h1>
+        <div class="contact-card">
+            <div class="member" id="member1">
+                <h2>Teja Jagadeesh</h2>
+                <button onclick="showDetails('member1')">Show Details</button>
+                <div class="details" style="display: none;">
+                    <p>Phone: <span class="phone">+91 87123 02775</span></p>
+                    <p>Town: <span class="town">AMALAPURAM</span></p>
+                    <p>Email: <span class="email">teja@gmail.com</span></p>
+                    <p>Registration No: <span class="regno">21B91A05H4</span></p>
+                    <p>College: <span class="college">SRKR Engineering COLLEGE</span></p>
+                    <p>Branch: <span class="branch">CSE</span></p>
+                </div>
+            </div>
+            <div class="member" id="member2">
+                <h2>Sudeshna Devi</h2>
+                <button onclick="showDetails('member2')">Show Details</button>
+                <div class="details" style="display: none;">
+                    <p>Phone: <span class="phone">+91 8985643138</span></p>
+                    <p>Town: <span class="town">NARSAPURAM</span></p>
+                    <p>Email: <span class="email">sudeshna@gmail.com</span></p>
+                    <p>Registration No: <span class="regno">21B91A05H3</span></p>
+                    <p>College: <span class="college">SRKR Engineering COLLEGE</span></p>
+                    <p>Branch: <span class="branch">CSE</span></p>
+                </div>
+            </div>
+            <div class="member" id="member3">
+                <h2>Aditya Sai</h2>
+                <button onclick="showDetails('member3')">Show Details</button>
+                <div class="details" style="display: none;">
+                    <p>Phone: <span class="phone">+91 85004 02044</span></p>
+                    <p>Town: <span class="town">Mummidivaram</span></p>
+                    <p>Email: <span class="email">adityasai9944@gmail.com</span></p>
+                    <p>Registration No: <span class="regno">21B91A05H2</span></p>
+                    <p>College: <span class="college">SRKR Engineering COLLEGE</span></p>
+                    <p>Branch: <span class="branch">CSE</span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="popup" class="popup">
+        <span class="close" onclick="closePopup()">&times;</span>
+        <h2 id="popupName"></h2>
+        <p>Phone: <span id="popupPhone"></span></p>
+        <p>Town: <span id="popupTown"></span></p>
+        <p>Email: <span id="popupEmail"></span></p>
+        <p>Registration No: <span id="popupRegNo"></span></p>
+        <p>College: <span id="popupCollege"></span></p>
+        <p>Branch: <span id="popupBranch"></span></p>
+    </div>
+
+    <script>
+        function showDetails(memberId) {
+            const member = document.getElementById(memberId);
+            const details = member.querySelector('.details');
+            const popup = document.getElementById('popup');
+
+            document.getElementById('popupName').innerText = member.querySelector('h2').innerText;
+            document.getElementById('popupPhone').innerText = details.querySelector('.phone').innerText;
+            document.getElementById('popupTown').innerText = details.querySelector('.town').innerText;
+            document.getElementById('popupEmail').innerText = details.querySelector('.email').innerText;
+            document.getElementById('popupRegNo').innerText = details.querySelector('.regno').innerText;
+            document.getElementById('popupCollege').innerText = details.querySelector('.college').innerText;
+            document.getElementById('popupBranch').innerText = details.querySelector('.branch').innerText;
+
+            popup.classList.add('active');
+        }
+
+        function closePopup() {
+            const popup = document.getElementById('popup');
+            popup.classList.remove('active');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,185 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+    body {font-family: Arial, Helvetica, sans-serif;}
+    .show {display: block; }
+    @media screen and (max-width: 600px) {
+    .column { width: 100%; height: auto; } }
+    .navbar {overflow: hidden;background-color: rgb(98, 0, 128);}
+    .navbar a {float: left;font-size: 16px;color: white;text-align: center;padding: 14px 16px;text-decoration: none;}
+    .dropdown {float: left;overflow: hidden}
+    .dropdown .dropbtn {cursor: pointer;font-size: 16px;border: none;outline: none;color: white;padding: 14px 16px;background-color: inherit;font-family: inherit;margin: 0;}
+    .navbar a:hover, .dropdown:hover .dropbtn {background-color: 333;}
+    .dropdown-content {display: none;position: absolute;background-color: rgb(221, 221, 221);width: 100%;left:0;box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);z-index: 1;}
+    .dropdown-content a {float: none;color: black;padding: 12px 16px;text-decoration: none;display: block;text-align: left;}
+    .dropdown-content a:hover {background-color: blue;}
+    .dropdown:hover .dropdown-content {display: block; }
+    body{background-color:rgb(128, 130, 240);}
+    html{scroll-behavior: smooth;}
+    .dropdownx{ position: relative;display: inline-block;}
+    .dropdownx-content{display: none;position:absolute ;background-color: white;min-width: 230px;overflow: auto;border: 1px groove gray;z-index: 100;}
+    .dropdownx-content a{ color: solid black; padding: 10px; display: block; text-decoration: 10px; }
+    .dropdownx-content a:hover {background-color : gray;color : white;} 
+    .showx{display: inline-block;}
+    .btnx{ background-color:rgb(128, 130, 240);font-size: 30px;padding: 3px;border: none;border-radius: 100%;}
+    #Inputx{background-color : azure;font-size: 16px;padding: 14px 20px 12px 15px;}
+    .pic{ display: none;}
+    .autoslide{margin : 0;}
+    .autoslide-contain{ max-width: 100%;position:relative;}
+    .fade{animation-name: fade;animation-duration: 2s;}
+    @keyframes fade {from {opacity: 0.3}to {opacity: 1}}
+</style>
+</head>
+<body>
+<div class="navbar">
+    <a href="Cultures.html">Home</a>
+    <div class="dropdown">
+        <button class="dropbtn" onclick="myFunction()">About
+            <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content" id="myDropdown">
+            <p style="padding-left:2px;padding-right:2px;">Indian architecture is rooted in its history, culture and religion. Among a number of architectural styles and traditions, the best-known include the many varieties of Hindu temple architecture, Indo-Islamic architecture, especially Mughal architecture, Rajput architecture and Indo-Saracenic architecture.<br> Much early Indian architecture was in wood, which has not survived. Instead the earliest survivals are from the many sites with Indian rock-cut architecture, most Buddhist but some Hindu and Jain.</p>
+        </div>
+    </div>
+</div>
+<br>
+<div class="dropdownx">
+    <button class="btnx" onclick="Inwoke()" ><img src="https://imgs.search.brave.com/0uQrOQfGZqxyC4h6U4cKB0jc-Ee0PtkVwW9NBr_0H-s/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9hc3Nl/dHMuc3RpY2twbmcu/Y29tL3RodW1icy81/ODVlNGFlMWNiMTFi/MjI3NDkxYzMzOTMu/cG5n" height="25" width="25"></button>
+    <div class="dropdownx-content" id="DDC" >
+        <input type="text" placeholder="Search..." id="Inputx" onkeyup="SearchFun()">
+        <a href="#C1" >Taj Mahal</a>
+        <a href="#C2" >Lotus Temple</a>
+        <a href="#C3" >Amber Fort</a>
+        <a href="#C4" >Ajanta-Ellora Caves</a>
+        <a href="#C5" >Sun Temple</a>
+        <a href="#C6" >Sanchi Stupa</a> 
+    </div>
+</div>
+<h1 style="text-align:center;font-family:lucida calligraphy;color:red;">INDIAN ARCHITECTURE</h1>
+<div class="autoslide-contain">
+    <div class="pic fade">
+        <img src="https://4kwallpapers.com/images/wallpapers/taj-mahal-india-sunset-orange-sky-wonders-of-the-world-3440x1440-4651.jpg" width="100%" height="500px">
+    </div>
+    <div class="pic fade">
+        <img src="https://wallpaperaccess.com/full/4100552.jpg" width="100%" height="500px">
+    </div>
+    <div class="pic fade">
+        <img src="https://mypenmyfriend.com/wp-content/uploads/2022/08/Konark-Sun-Temple-or-Black-Pagoda-The-Chariot-of-Sun.jpg" width="100%" height="500px">
+    </div>
+    <div class="pic fade">
+        <img src="https://media.istockphoto.com/id/1369987507/photo/red-fort-delhi.jpg?b=1&s=170667a&w=0&k=20&c=mGTiIgTNeiEbH7SUxOdxtcVQFX6AJeBn0v_AWW6iXIU=" width="100%" height="500px">
+    </div>
+    <div class="pic fade">
+        <img src="https://media.istockphoto.com/id/895671482/photo/sanchi-stupa-madhya-pradesh-india-ancient-buddhist-building-religion-mystery-carved-stone.jpg?b=1&s=170667a&w=0&k=20&c=GCLthiuuEuJ74cSaOj6qNjeYSe9Qs30Uuc37zjmP0RY=" width="100%" height="500px">
+    </div>
+</div>
+<h1 id="C1" style="text-align:center;font-family:lucida calligraphy;color:deeppink;">Taj Mahal</h1>
+    <table style="width:75%;margin-left:auto;margin-right:auto;">
+    <tr>
+    <td rowspan="2" style="padding-right:30px;"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSC1ihPUTKzdhn42452NqL06edCiU7JWVPU1Q&usqp=CAU" width="235" height="175"></td>
+    <td colspan="2">Taj Mahal is without a doubt, one of the most impressive pieces of architecture not only in India but all around the world. For years, it has been the face of Indian architecture for people all over the world. Built-in 1653 on the orders of the Mughal ruler Shahjahan as a resting place for his beloved queen Mumtaj Mahal, it is a symbol of love.</td>
+    </tr>
+    <tr>
+    <td>Considered to be one of the finest examples of Mughal architecture, the white marble building comprises of a square plinth having a central structure topped by a huge dome and surrounded by four minarets at each corner. It is considered one of the seven wonders of the world in the modern era. It attracts about 3 million tourists every year thus being a hotshot for visitors globally.</td>
+    </tr>
+    </table>
+<h1 id="C2" style="text-align:center;font-family:lucida calligraphy;color: orangered ;">Lotus Temple</h1>
+    <table style="width:75%;margin-left:auto;margin-right:auto;">
+    <tr>
+    <td colspan="2">It is one of the modern buildings that have come up in recent times and has managed to achieve a status and fame that attracts tourists from all over the world. Conceptualized in the form of a Lotus flower, it is a Baha’i House of worship that is open to all religions and stands for the secularism and openness of the country. </td>
+    <td rowspan="2" style="padding-right:30px;"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIVI_HbboiNFCbMvHMcVdxRYM_4B_agqpXXw&usqp=CAU" width="235" height="175"></td>
+    </tr>
+    <tr>
+    <td>The architect, Fariborz Sahba has attempted to make this building familiar and acceptable to the Indian people without imitating any of the existing architectural schools of India. The basic idea of the design is that two fundamental elements - light and water - have been used as ornamentation in place of the statues and carvings normally found in Indian temples.
+    </td>
+    </table>
+<h1 id="C3" style="text-align:center;font-family:lucida calligraphy;color:orchid;">Amber Fort</h1>
+    <table style="width:75%;margin-left:auto;margin-right:auto;">
+    <tr>
+    <td rowspan="2" style="padding-right:30px;"><img src="https://www.travelwithcg.com/wp-content/uploads/2021/02/Ganesh-Pol-1024x683.jpg" width="235" height="200"></td>
+    <td colspan="2">Amber Fort is one of the hill forts in Rajasthan. A specimen of Hindu architecture in a Rajputana style, this fort is 11km away from the city of Jaipur. Made of Red-Sandstone and Marble, it is famous for its self-sustaining features. Having Moata Lake as its permanent water source and highly advanced ventilation system done by brilliant design.</td>
+    </tr>
+    <tr>
+    <td>Amer Palace is great example of Rajput architecture. Some of its buildings and work have influence of Mughal architectured.Constructed of red sandstone and marble, the attractive, opulent palace is laid out on four levels, each with a courtyard. It consists of the Diwan-e-Aam, or "Hall of Public Audience", the Diwan-e-Khas, or "Hall of Private Audience", the Sheesh Mahal (mirror palace), or Jai Mandir, and the Sukh Niwas where a cool climate is artificially created by winds that blow over a water cascade within the palace.</td>
+    </tr>
+    </table>
+<h1 id="C4" style="text-align:center;font-family:lucida calligraphy;color: greenyellow ;">Ajanta-Ellora Caves</h1>
+    <table style="width:75%;margin-left:auto;margin-right:auto;">
+    <tr>
+    <td colspan="2">Built during the time period of 2nd century B.C. to 6th century A.D., these caves are the finest examples of rock-cut caves. Honed out of volcanic ballistic formations while existing in a linear pattern, there are 34 caves, containing the remnants of Buddhist, Hindu, and Jain temples. These walls are equipped with engravings showing the life of Lord Buddha. The purpose of these caves was to provide a sanctuary for the monks to meditate.</td>
+    <td rowspan="2" style="padding-right:30px;"><img src="https://i0.wp.com/www.tusktravel.com/blog/wp-content/uploads/2019/10/Ajanta-and-Ellora-Caves-Aurangabad.jpg?fit=800%2C600&ssl=1" width="235" height="200"></td>
+    </tr>
+    <tr>
+    <td>Ajanta caves and Ellora caves are among the earliest Buddhist architectures. The Ajanta – Ellora caves have evolved during the period 2nd century BC to 6th Century AD. The paintings and sculptures of Ajanta and Ellora caves are UNESCO World Heritage Sites since 1983 and are considered masterpieces of Buddhist religious art that have had a great influence in the development of art in India.</td>
+    </tr>
+    </table>
+<h1 id="C5" style="text-align:center;font-family:lucida calligraphy;color:orchid;"> Sun Temple, Konark</h1>
+    <table style="width:75%;margin-left:auto;margin-right:auto;">
+    <tr>
+    <td rowspan="2" style="padding-right:30px;"><img src="https://mypenmyfriend.com/wp-content/uploads/2022/08/Konark-Sun-Temple-or-Black-Pagoda-The-Chariot-of-Sun.jpg" width="235" height="200"></td>
+    <td colspan="2">Lying on the coast of the Bay of Bengal, it is considered one of the best examples of Dravidian Architecture. Also known as the Black Pagoda, it is considered one of the grandest temples in India. Built in the 13th century, it has a form of a giant chariot with twelve intricately crafted wheels led by seven horses. A true marvel that shows the advanced craftsmanship as well as love and devotion of that era for art.</td>
+    </tr>
+    <tr>
+    <td>Dedicated to the Hindu Sun God Surya, what remains of the temple complex has the appearance of a 100-foot (30 m) high chariot with immense wheels and horses, all carved from stone. Once over 200 feet (61 m) high,[1][5] much of the temple is now in ruins, in particular the large shikara tower over the sanctuary; at one time this rose much higher than the mandapa that remains. The structures and elements that have survived are famed for their intricate artwork, iconography, and themes, including erotic kama and mithuna scenes.</td>
+    </tr>
+    </table>
+<h1 id="C6" style="text-align:center;font-family:lucida calligraphy;color: greenyellow ;">Sanchi Stupa</h1>
+    <table style="width:75%;margin-left:auto;margin-right:auto;">
+    <tr>
+    <td colspan="2">ESanchi is a Buddhist complex, famous for its Great Stupa, on a hilltop at Sanchi Town in Raisen District of the State of Madhya Pradesh, India. It is located, about 23 kilometres from Raisen town, district headquarter and 46 kilometres (29 mi) north-east of Bhopal, capital of Madhya Pradesh.</td>
+    <td rowspan="2" style="padding-right:30px;"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/003_Front_View_%2833709016166%29.jpg/1024px-003_Front_View_%2833709016166%29.jpg" width="235" height="200"></td>
+    </tr>
+    <tr>
+    <td>The Great Stupa at Sanchi is one of the oldest stone structures in India, and an important monument of Indian Architecture.[1] It was originally commissioned by the Mauryan emperor Ashoka the Great in the 3rd century BCE. Its nucleus was a simple hemispherical brick structure built over the relics of the Buddha. It was crowned by the 'chhatra', a parasol-like structure symbolising high rank, which was intended to honour and shelter the relics.</td>
+    </tr>
+    </table>
+<script>
+        function Inwoke(){
+            document.getElementById("DDC").classList.toggle("showx");
+        }
+        function SearchFun() {
+            var input, filter, ul, li, a, i;
+            input = document.getElementById("Inputx");
+            filter = input.value.toUpperCase();
+            div = document.getElementById("DDC");
+            a = div.getElementsByTagName("a");
+            for (i = 0; i < a.length; i++) {
+                txtValue = a[i].textContent || a[i].innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                a[i].style.display = "";
+                } else {
+                a[i].style.display = "none";
+                }
+            }
+        }
+        function myFunction() {
+            document.getElementById("myDropdown").classList.toggle("show");
+            }
+            // Close the dropdown if the user clicks outside of it
+            window.onclick = function(e) {
+            if (!e.target.matches('.dropbtn')) {
+            var myDropdown = document.getElementById("myDropdown");
+            if (myDropdown.classList.contains('show')) {
+            myDropdown.classList.remove('show');
+            }
+            }
+        }
+        let Index = 0;
+        fun();
+        function fun(){
+            let x = document.getElementsByClassName("pic");
+            for(let i = 0 ; i < x.length ; i++ ){
+                x[i].style.display = "none";
+            }
+            Index++;
+            if (Index > x.length){
+                Index = 1;
+            }
+            x[Index-1].style.display="block";
+            setTimeout(fun,3000);
+        }
+</script>
+</body>
+</html>

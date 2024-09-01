@@ -1,0 +1,245 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+  .navbar {
+    overflow: hidden;
+    background-color:deepskyblue;
+    }
+    .navbar a {
+    float: left;
+    font-size: 25px;
+    color:black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  html{
+            scroll-behavior: smooth;
+        }
+        .dropdownx{
+            position: relative;
+            display: inline-block;
+        }
+        .dropdownx-content{
+            display: none;
+            position:absolute ;
+            background-color: white;
+            min-width: 230px;
+            overflow: auto;
+            border: 1px groove gray;
+            z-index: 100;
+        }
+        .dropdownx-content a{
+            color: solid black;
+            padding: 10px;
+            display: block;
+            text-decoration: 10px;
+        }
+        .dropdownx-content a:hover {
+            background-color : gray;
+            color : white;
+        } 
+        .showx{
+            display: inline-block;
+        }
+        .btnx{
+            background-color:aquamarine;
+            font-size: 30px;
+            padding: 3px;
+            border: none;
+            border-radius: 100%;
+        }
+        #Inputx{
+            background-color : azure;
+            font-size: 16px;
+            padding: 14px 20px 12px 15px;
+        }
+  img{
+    border-radius: 10%;
+  }
+  .pic{
+    display: none;
+  }
+  .autoslide{
+    margin : 0;
+  }
+  .autoslide-contain{
+    max-width: 100%;
+    position:relative;
+  }
+  .fade{
+   animation-name: fade;
+   animation-duration: 2s;
+  }
+ @keyframes fade {
+    from {opacity: 0.3}
+    to {opacity: 1}
+}
+</style>
+</head>
+<body style="background-color:aquamarine;">
+  <div class="navbar">
+    <a href="Cultures.html">Home</a>
+  </div>
+  <br>
+  <div class="dropdownx">
+    <button class="btnx" onclick="Inwoke()" ><img src="https://imgs.search.brave.com/0uQrOQfGZqxyC4h6U4cKB0jc-Ee0PtkVwW9NBr_0H-s/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9hc3Nl/dHMuc3RpY2twbmcu/Y29tL3RodW1icy81/ODVlNGFlMWNiMTFi/MjI3NDkxYzMzOTMu/cG5n" height="25" width="25"></button>
+    <div class="dropdownx-content" id="DDC" >
+        <input type="text" placeholder="Search..." id="Inputx" onkeyup="SearchFun()">
+        <a href="#C1" >Bengal Tiger</a>
+        <a href="#C2" >Indian Elephant</a>
+        <a href="#C3" >Asiatic Lion</a>
+        <a href="#C4" >Indian Leopard</a>
+        <a href="#C5" >Rhinoceros</a>
+        <a href="#C6" >Chital</a>
+        <a href="#C7" >Bengal Fox</a> 
+        <a href="#C8" >Red Panda</a>
+    </div>
+</div>
+<h1 style="text-align:center;font-family:lucida calligraphy;color:orange;">Indian Animals</h1>
+<div class="autoslide-contain">
+  <div class="pic fade">
+      <img src="https://www.pixel4k.com/wp-content/uploads/2018/11/lion-forest-4k_1542239116.jpg" width="100%" height="500px">
+  </div>
+  <div class="pic fade">
+      <img src="https://www.awf.org/sites/default/files/Website_SpeciesPage_Rhinoceros01_Hero.jpg" width="100%" height="500px">
+  </div>
+  <div class="pic fade">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/9/98/Elephas_maximus_%28Bandipur%29.jpg" width="100%" height="500px">
+  </div>
+  <div class="pic fade">
+      <img src="http://t0.gstatic.com/licensed-image?q=tbn:ANd9GcTsnzGb3LyPvZfpmVJ9R_GOJFbQ-avyxoFltxyjeq1TjLyCyoZClLi7ZYzMxaGGsumEzaSZWiVHJfpvxJc" width="100%" height="500px">
+  </div>
+  <div class="pic fade">
+      <img src="http://t2.gstatic.com/licensed-image?q=tbn:ANd9GcRyuEBrl6kO0b3BEksl0W7VleSspNrQsNQZVgwjalAw7kCO3UNNEZcWx3H6K3GU8wWUdyKTuWc807Qkufk" width="100%" height="500px">
+  </div>
+</div>
+<div id="">
+<h1 id="C1" style="text-align:center;font-family:lucida calligraphy;color:deeppink;">Bengal Tiger</h1>
+</div>
+<table style="width:75%;margin-left:auto;margin-right:auto;">
+<tr>
+<td rowspan="2" style="padding-right:30px;"><img src="http://t0.gstatic.com/licensed-image?q=tbn:ANd9GcTsnzGb3LyPvZfpmVJ9R_GOJFbQ-avyxoFltxyjeq1TjLyCyoZClLi7ZYzMxaGGsumEzaSZWiVHJfpvxJc" width="215" height="175"></td>
+<td colspan="2">The Bengal tiger is a population of the Panthera tigris tigris subspecies. It ranks among the biggest wild cats alive today. It is considered to belong to the world's charismatic megafauna. Bengal tiger. Adult male in Kanha Tiger Reserve, India.
+</td>
+</tr>
+<tr>
+<td>The tiger is estimated to have been present in the Indian subcontinent since the Late Pleistocene, for about 12,000 to 16,500 years.Today, it is threatened by poaching, loss and fragmentation of habitat, and was estimated at comprising fewer than 2,500 wild individuals by 2011.</td>
+</tr>
+</table>
+<h1 id="C2" style="text-align:center;font-family:lucida calligraphy;color: rgb(255, 0, 221) ;">Indian Elephant</h1>
+<table style="width:75%;margin-left:auto;margin-right:auto;">
+<tr>
+<td colspan="2">The Indian elephant (Elephas maximus indicus) is one of four[citation needed] extant recognised subspecies of the Asian elephant and native to mainland Asia.</td>
+<td rowspan="2" style="padding-right:30px;"><img src="https://upload.wikimedia.org/wikipedia/commons/9/98/Elephas_maximus_%28Bandipur%29.jpg" width="215" height="175"></td>
+</tr>
+<tr>
+<td>Since 1986, the Asian elephant has been listed as Endangered on the IUCN Red List as the wild population has declined by at least 50% since the 1930s to 1940s, i.e. three elephant generations. The Asian elephant is threatened by habitat loss, degradation and fragmentation.</td>
+</table>
+<h1 id="C3" style="text-align:center;font-family:lucida calligraphy;color:orchid;">Asiatic Lion</h1>
+<table style="width:75%;margin-left:auto;margin-right:auto;">
+<tr>
+<td rowspan="2" style="padding-right:30px;"><img src="https://bigcatswildcats.com/wp-content/uploads/2019/03/portrait-asiati-lion.jpeg" width="215" height="175"></td>
+<td colspan="2">The Asiatic lion is a population of Panthera leo leo that today survives in the wild only in India.[1] Since the turn of the 20th century, its range has been restricted to Gir National Park and the surrounding areas in the Indian state of Gujarat. Historically, it inhabited much of southwest Asia to northern India.[2]
+</td>
+</tr>
+<tr>
+<td>The first scientific description of the Asiatic lion was published in 1826 by the Austrian zoologist Johann N. Meyer, who named it Felis leo persicus.[3] On the IUCN Red List, it is listed under its former scientific name Panthera leo persica as Endangered because of its small population size and area of occupancy.</td>
+</tr>
+</table>
+<h1 id="C4" style="text-align:center;font-family:lucida calligraphy;color: rgb(47, 120, 255)  ;"> Indian Leopard</h1>
+<table style="width:75%;margin-left:auto;margin-right:auto;">
+<tr>
+<td colspan="2">The Indian leopard (Panthera pardus fusca) is a leopard subspecies widely distributed on the Indian subcontinent. The species Panthera pardus is listed as Vulnerable on the IUCN Red List because populations have declined following habitat loss and fragmentation, poaching for the illegal trade of skins and body parts, and persecution due to conflict situations.</td>
+<td rowspan="2" style="padding-right:30px;"><img src="https://upload.wikimedia.org/wikipedia/commons/8/8e/Nagarhole_Kabini_Karnataka_India%2C_Leopard_September_2013.jpg" width="215" height="175"></td>
+</tr>
+<tr>
+<td>The Indian leopard is one of the big cats occurring on the Indian subcontinent, along with the Asiatic lion, Bengal tiger, snow leopard and clouded leopard.[2][3][4] In 2014, a national census of leopards around tiger habitats was carried out in India except the northeast.</td>
+</tr>
+</table>
+<h1 id="C5" style="text-align:center;font-family:lucida calligraphy;color:rgb(255, 251, 8);">Rhinoceros</h1>
+<table style="width:75%;margin-left:auto;margin-right:auto;">
+<tr>
+<td rowspan="2" style="padding-right:30px;"><img src="http://t2.gstatic.com/licensed-image?q=tbn:ANd9GcSRtG0SVcCqxhsUpsy0qGwnpWe6m8tPeMKWdbKZYCkAsnoTeR8N4hdwcU_eLOvdoI-vjB9blyQuc_AOAbs" width="225" height="175"></td>
+<td colspan="2">The Indian rhinoceros (Rhinoceros unicornis), also called the Indian rhino, greater one-horned rhinoceros or great Indian rhinoceros, is a rhinoceros species native to the Indian subcontinent. It is listed as Vulnerable on the IUCN Red List, as populations are fragmented and restricted to less than 20,000 km2 (7,700 sq mi).</td>
+</tr>
+<tr>
+<td>Moreover, the extent and quality of the rhino's most important habitat, the alluvial Terai-Duar savanna and grasslands and riverine forest, is considered to be in decline due to human and livestock encroachment. As of August 2018, the global population was estimated to comprise 3,588 individuals, including 2,939 individuals in India and 649 in Nepal.</td>
+</tr>
+</table>
+<h1 id="C6" style="text-align:center;font-family:lucida calligraphy;color: rgb(255, 147, 47)  ;">Chital</h1>
+<table style="width:75%;margin-left:auto;margin-right:auto;">
+<tr>
+<td colspan="2">The chital or cheetal (Axis axis; /tʃiːtəl/), also known as the spotted deer, chital deer, and axis deer, is a deer species native to the Indian subcontinent. It was first described and given a binomial name by German naturalist Johann Christian Polycarp Erxleben in 1777. A moderate-sized deer, male chital reach 90 cm (35 in) and females 70 cm (28 in) at the shoulder.</td>
+<td rowspan="2" style="padding-right:30px;"><img src="http://t2.gstatic.com/licensed-image?q=tbn:ANd9GcRyuEBrl6kO0b3BEksl0W7VleSspNrQsNQZVgwjalAw7kCO3UNNEZcWx3H6K3GU8wWUdyKTuWc807Qkufk" width="215" height="175"></td>
+</tr>
+<tr>
+<td>The vernacular name "chital" (pronounced /tʃiːtəl/)comes from cītal (Hindi: चीतल), derived from the Sanskrit word citrala (चित्रल), meaning "variegated" or "spotted".The name of the cheetah has a similar origin.Variations of "chital" include "cheetal" and "cheetul".Other common names for the chital are Indian spotted deer (or simply the spotted deer) and axis deer.
+
+</td>
+</tr>
+</table>
+<h1 id="C7" style="text-align:center;font-family:lucida calligraphy;color:orchid;">Bengal Fox</h1>
+<table style="width:75%;margin-left:auto;margin-right:auto;">
+<tr>
+  <td rowspan="2" style="padding-right:30px;"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHmWpuCIhak5ToO_k6V_aJAT_e2Df031v9pA&usqp=CAU" height="175" width="215"></td>
+ <td colspan="2">The Bengal fox (Vulpes bengalensis), also known as the Indian fox, is a fox endemic to the Indian subcontinent from the Himalayan foothills and Terai of Nepal through southern India, and from southern and eastern Pakistan to eastern India and southeastern Bangladesh.
+</td>
+</tr>
+<tr>
+<td>Vulpes bengalensis is a relatively small fox with an elongated muzzle, long, pointed ears, and a long, bushy tail. The pelage ranges in color from buff to silver-gray with an overall grizzled effect; the dorsal pelage is mostly grayish and paler ventrally.</td>
+</tr>
+</table>
+<h1 id="C8" style="text-align:center;font-family:lucida calligraphy;color: rgb(47, 189, 255)  ;">Red Panda</h1>
+<table style="width:75%;margin-left:auto;margin-right:auto;">
+<tr>
+<td colspan="2">One of the most loved animals in India is the cute red panda. It’s native to the eastern Himalayas and southwestern China. A part of the population lives in the Meghalaya Plateau of north-eastern India.
+
+  It lik</td>
+<td rowspan="2" style="padding-right:30px;"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Red_Panda_%2824986761703%29.jpg/1200px-Red_Panda_%2824986761703%29.jpg" width="225" height="175"></td>
+</tr
+<tr>
+<td>It thrives best at 2,200-4,800m in mixed deciduous and conifer forests with dense understories of bamboo, though red panda evidences have also been found at 1800m. In India, this elusive species is found in Sikkim, Arunachal Pradesh, Darjeeling and Kalimpong districts of West Bengal. It is the state animal of Sikkim.
+</td>
+</tr>
+</table>
+<script>
+  let Index = 0;
+        fun();
+        function fun(){
+            let x = document.getElementsByClassName("pic");
+            for(let i = 0 ; i < x.length ; i++ ){
+                x[i].style.display = "none";
+            }
+            Index++;
+            if (Index > x.length){
+                Index = 1;
+            }
+            x[Index-1].style.display="block";
+            setTimeout(fun,3000);
+        }
+
+        function Inwoke(){
+            document.getElementById("DDC").classList.toggle("showx");
+        }
+        function SearchFun() {
+            var input, filter, ul, li, a, i;
+            input = document.getElementById("Inputx");
+            filter = input.value.toUpperCase();
+            div = document.getElementById("DDC");
+            a = div.getElementsByTagName("a");
+            for (i = 0; i < a.length; i++) {
+                txtValue = a[i].textContent || a[i].innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                a[i].style.display = "";
+                } else {
+                a[i].style.display = "none";
+                }
+            }
+        }
+</script>
+</body>
+</html>
+ 

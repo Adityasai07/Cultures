@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><title>Cultures of India</title>
+
+    <style>
+        .waterMark {
+            margin: 0;
+        }
+    
+        .waterMark img {
+            vertical-align: middle;
+        }
+    
+        .waterMark .inner {
+            position: absolute;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0);
+            color: #f1f1f1;
+            width: 100%;
+        }
+    
+        .tab {
+            tab-size: 16;
+        }
+    
+        .pic {
+            display: none;
+        }
+    
+        .autoslide {
+            margin: 0;
+        }
+    
+        .autoslide-contain {
+            max-width: 100%;
+            position: relative;
+        }
+    
+        .fade {
+            animation-name: fade;
+            animation-duration: 2s;
+        }
+    
+        @keyframes fade {
+            from {
+                opacity: 0.3;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    
+        
+    
+        zoom img {
+            transition: 0.3s;
+            border-radius: 10%;
+        }
+    
+        zoom:hover img {
+            transform: scale(1.15);
+        }
+    
+        h6 {
+            color: black;
+            font-family: Arial;
+            font-size: 18px;
+            text-align: right;
+        }
+    
+        a:link {
+            color: black;
+            font-size: 20px;
+            text-decoration: none;
+        }
+    
+        a:visited {
+            color: black;
+            font-size: 20px;
+            text-decoration: none;
+        }
+    
+        /* a:hover {
+            color: darkblue;
+            font-size: 22px;
+            text-decoration: none;
+        } */
+    
+        hr {
+            border: 1px solid black;
+        }
+        .side {
+            height: 100%;
+            width: 0;
+            z-index: 1;
+            position: fixed;
+            background-color: #333; /* Dark gray background for better visibility */
+            transition: 0.3s ease; /* Smooth transition for opening/closing */
+            overflow-x: hidden; /* Hide horizontal overflow */
+            padding-top: 60px; /* Space for top elements */
+            top: 0;
+            left: 0;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+        }
+
+        .side a {
+            padding: 15px 20px; /* Increased padding for better touch targets */
+            text-decoration: none;
+            font-size: 18px; /* Reduced font size for consistency */
+            color: #f1f1f1; /* Light color for better contrast */
+            display: block;
+            transition: 0.3s; /* Smooth transition for hover effects */
+        }
+
+        .side a:hover {
+            color: #4CAF50; /* Highlight color on hover */
+            background-color: rgba(255, 255, 255, 0.2); /* Subtle background color on hover */
+            border-radius: 5px; /* Rounded corners for hover effect */
+        }
+
+        .side.exit1 {
+            position: absolute;
+            top: 20px; /* Adjusted top positioning */
+            right: 20px; /* Positioned to the right */
+            font-size: 24px;
+            color: #f1f1f1; /* Light color for the exit button */
+        }    
+        #main {
+            transition: margin-left .7s;
+            padding-left: 20px;
+        }
+    
+
+
+        @media screen and (max-width: 768px) {
+            .side {
+                padding-top: 60px; /* Adjust padding for smaller screens */
+                font-size: 14px; /* Adjust font size for smaller screens */
+            }
+        }
+    
+        html {
+            scroll-behavior: smooth;
+        }
+    
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+    
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 230px;
+            overflow: auto;
+            border: 1px groove gray;
+            z-index: 100;
+        }
+    
+        .dropdown-content a {
+            color: black;
+            padding: 10px;
+            display: block;
+            text-decoration: none;
+        }
+    
+        .dropdown-content a:hover {
+            background-color: gray;
+            color: white;
+        }
+    
+        .show {
+            display: inline-block;
+        }
+    
+        .btn {
+            background-color: deepskyblue;
+            font-size: 30px;
+            padding: 3px;
+            border: none;
+            border-radius: 100%;
+        }
+    
+        #Input {
+            background-color: azure;
+            font-size: 16px;
+            padding: 14px 20px 12px 15px;
+        }
+    
+        space {
+            word-spacing: 50px;
+        }
+
+
+    </style>
+    
+    <link rel="stylesheet" href="picture.css" class="">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" class="">
+</head>
+<body style="background-color: deepskyblue;">
+    <div id="sideBar" class="side">
+        <a href="javascript:void(0)" class="exit1" onclick="exitFun()" >&times;</a>
+        <a href="Cultures.html"> <i class="fa-solid fa-house-chimney"> </i>  Home</a>
+        <br><br>
+        <a href="contact.html"> <i class="fa-sharp fa-solid fa-phone"></i>  Contact</a>
+    </div>
+    <table>
+        <tr>
+            <td>
+            <space>
+                <button onclick="OpenSide()"><i class="fa-solid fa-bars" style="font-size: 30px;"></i></button>
+                <div class="dropdown">
+                    <button class="btn" onclick="Inwoke()" style="background-color:deepskyblue;" ><img src="https://imgs.search.brave.com/0uQrOQfGZqxyC4h6U4cKB0jc-Ee0PtkVwW9NBr_0H-s/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9hc3Nl/dHMuc3RpY2twbmcu/Y29tL3RodW1icy81/ODVlNGFlMWNiMTFi/MjI3NDkxYzMzOTMu/cG5n" height="25" width="25"></button>
+                    <div class="dropdown-content" id="DDC" >
+                        <input type="text" placeholder="Search..." id="Input" onkeyup="SearchFun()">
+                        <a href="Festival.html" >Festivals</a>
+                        <a href="Cultures.html" >Dances</a>
+                        <a href="IndianMusic.html" >Music</a>
+                        <a href="IndianFort.html" >Architecture</a>
+                        <a href="Crop.html" >Crops</a>
+                        <a href="Food.html" >Food</a>
+                        <a href="Animal.html" >Animals</a> 
+                    </div>
+                </div>
+            </space>
+            </td>
+            <td style="padding-left: 350px;">
+                <h1 style="color: navy; font-size: 70px;">Indian Cultures</h1>
+            </td>
+        </tr>
+    </table>
+    <div class="autoslide-contain">
+        <div class="pic fade">
+            <img src="https://arunachalobserver.org/wp-content/uploads/2022/08/Ganesh-Chaturthi-Celebration-in-India.jpg" width="100%" height="500px">
+        </div>
+        <div class="pic fade">
+            <img src="https://4kwallpapers.com/images/wallpapers/taj-mahal-india-sunset-orange-sky-wonders-of-the-world-3440x1440-4651.jpg" width="100%" height="500px">
+        </div>
+        <div class="pic fade">
+            <img src="https://wallpaperaccess.com/full/453367.jpg" width="100%" height="500px">
+        </div>
+        <div class="pic fade">
+            <img src="https://wallpaperaccess.com/full/1315404.jpg" width="100%" height="500px">
+        </div>
+        <div class="pic fade">
+            <img src="https://wallpaperaccess.com/full/4883007.jpg" width="100%" height="500px">
+        </div>
+        <div class="pic fade">
+            <img src="https://www.pixel4k.com/wp-content/uploads/2018/11/lion-forest-4k_1542239116.jpg" width="100%" height="500px">
+        </div>
+        <div class="pic fade">
+            <img src="https://www.authenticindiatours.com/app/uploads/2021/02/Customs-and-traditions-in-Indian-culture-Kathakali-1400x550-c-default.jpg" width="100%" height="500px">
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>            
+    <center>
+                    <table style="width: 70%;">
+                        <tr>
+                            <td>    
+                                <a href="Festival.html">
+                                        <center><zoom><img src="https://www.holidify.com/blog/wp-content/uploads/2015/07/13896645072_c994520879_k.jpg" height="200" width="250"></zoom></center>
+                                </a>
+                            </td>
+                            <td>
+                                <a href="Cultures.html">
+                                        <center>
+                                            <zoom>
+                                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRit7CI__pNSTf4hM-raX1s1Lhhq72fC3AbHuQc_Tx9G-199V5tFEKg7R3tJVTT8Gl267g&usqp=CAU" height="200" width="250">
+                                            </zoom>
+                                        </center>
+                                </a>
+                            </td>
+                            <td>
+                                <a href="IndianMusic.html">
+                                        <center>
+                                            <zoom>
+                                                <img src="https://cdn.dribbble.com/users/3768006/screenshots/11274674/media/aa6cf562dcdf51cb408b41ae4dcc3915.png?compress=1&resize=400x300" height="200" width="250">
+                                            </zoom>
+                                        </center>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="font-family:Arial Black; color :navy; font-size: 20px;"><center>Festivals of India</center></td>
+                            <td style="font-family:Arial Black; color :rgb(227, 22, 26) ; font-size: 20px;"><center>Indian Dances</center></td>
+                            <td style="font-family:Arial Black; color :darkslateblue ; font-size: 20px;"><center>Indian Music</center></td>
+                        </tr>
+                    </table>
+                </center>
+                <br>
+                <br>
+                <br>
+                <br>
+                <center>
+                    <table style="width: 90%;">
+                        <tr>
+                            <td>
+                                <a href="IndianFort.html">
+                                    <center>
+                                        <zoom>
+                                            <img src="https://thumbs.dreamstime.com/b/temple-hindu-religion-india-kutch-gujarat-shadow-indian-183495964.jpg" height="200" width="250">
+                                        </zoom>
+                                    </center>    
+                                </a>
+                            </td>
+                            <td>
+                                <a href="Crop.html">
+                                    <center>
+                                        <zoom>
+                                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZc9bjsfnzMwlvDnrUBAL-vwGl9Edp_eXw6CrN-miRr6Re3hcCEimOd6hIH5s7aCdEE3Y&usqp=CAU" height="200" width="250">
+                                        </zoom>
+                                    </center>
+                                </a>
+                            </td>
+                            <td>
+                                <a href="Food.html">
+                                    <center>
+                                        <zoom>
+                                            <img src="https://theplanetd.com/images/popular-indian-dishes-cuisine.jpg" height="200" width="250">
+                                        </zoom>
+                                    </center>    
+                                </a>
+                            </td>
+                            <td>
+                                <a href="Animal.html">
+                                    <center>
+                                        <zoom>
+                                            <img src="https://thumbs.dreamstime.com/b/large-group-african-safari-animals-wildlife-conservation-concept-174172993.jpg" height="200" width="250">
+                                        </zoom>
+                                    </center>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="font-family:Arial Black; color :firebrick ; font-size: 20px; "><center>Indian Architecture</center></td>
+                            <td style="font-family:Arial Black; color :darkgoldenrod ; font-size: 20px;"><center>Indian Crops</center></td>
+                            <td style="font-family:Arial Black; color :maroon; font-size: 20px;"><center>Indian Food</center></td>
+                            <td style="font-family:Arial Black; color :orangered ; font-size: 20px;"> <center>Indian Animals</center></td>
+                        </tr>
+                    </table>
+                </center>
+                <br>
+                <br>
+                <hr>
+                <center>
+                    <img src="https://pngimg.com/uploads/thank_you/thank_you_PNG132.png" height="auto" width="auto"></body>
+                    <h3 ><pre><a href="contact.html">Contact</a>    ||      <a href="https://www.incredibleindia.org/content/incredibleindia/en/experiences/heritage.html">Indianheritage</a>       ||      <a href="https://w3schools.com/">W3Schools</a></pre></h3>
+                    <br>
+                    <h3> Follow Us on : </h3>
+                    <br>
+                    <table style=" width: 30%">
+                        <tr>
+                        <td><a href="https://www.instagram.com/"><center><zoom><img src = "https://cdn.icon-icons.com/icons2/2858/PNG/512/instagram_ig_logo_icon_181651.png" height="40" width="40"></zoom></center></a></td>
+                        <td><a href="https://www.facebook.com/"> <center><zoom><img src ="https://cdn.icon-icons.com/icons2/2858/PNG/512/facebook_logo_icon_181652.png" height="40" width="40"></zoom></center></a></td>
+                        <td><a href="https://twitter.com/login"> <center><zoom><img src = "https://cdn.icon-icons.com/icons2/2858/PNG/512/twitter_logo_icon_181645.png" height="40" width="40"></zoom></center></a></td>
+                        </tr>
+                        </table>
+                        <br>
+                    @ CSE Department , SRKR Engineering College , Bhimavaram  
+                </center>
+    <script>
+                let Index = 0;
+        fun();
+        function fun(){
+            let x = document.getElementsByClassName("pic");
+            for(let i = 0 ; i < x.length ; i++ ){
+                x[i].style.display = "none";
+            }
+            Index++;
+            if (Index > x.length){
+                Index = 1;
+            }
+            x[Index-1].style.display="block";
+            setTimeout(fun,3000);
+        }
+        function OpenSide(){
+            document.getElementById("sideBar").style.width = "250px";
+            document.getElementById("main").style.marginLeft = "250px";
+        }
+
+        function exitFun(){
+            document.getElementById("sideBar").style.width = "0";
+            document.getElementById("main").style.marginLeft = "0";
+        }
+
+        function Inwoke(){
+         document.getElementById("DDC").classList.toggle("show");
+        }
+        function SearchFun() {
+            var input, filter, ul, li, a, i;
+            input = document.getElementById("Input");
+            filter = input.value.toUpperCase();
+            div = document.getElementById("DDC");
+            a = div.getElementsByTagName("a");
+            for (i = 0; i < a.length; i++) {
+                txtValue = a[i].textContent || a[i].innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    a[i].style.display = "";
+                } else {
+                    a[i].style.display = "none";
+                }
+            }
+        }
+    </script>
+    </body>
+</html>  

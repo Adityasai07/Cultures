@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head style="background-color:deepskyblue;">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crops</title>
+    <style>
+        html{scroll-behavior: smooth;}
+        button1{background-color:aquamarine;padding: 20px;font-size: 25px;border-radius: 20px;}
+        button1:hover{background-color: aqua; padding: 20px; font-size: 25px;}
+        .class1{ display: none; position: fixed; padding-top: 50px; padding-bottom: 100px;top: 0;left: 0;width: 100%;height: 100%;overflow: auto;background-color: rgb(0, 191, 255);background-color: rgb(0, 191, 255,0.2);}   
+        .class1-inner{background-color: cornflowerblue;  margin: auto;width: 70%;height: 70%;overflow:visible;border: none;padding:40px;border-radius: 18px;}    
+        .close{color:rgb(34, 36, 37);float: right;font-size: 40px;} 
+        .close:hover{color : red;font-size: 43px;}
+        .dropdown{position: relative;display: inline-block;}
+        .dropdown-content{display: none;position:absolute ;background-color: white;min-width: 230px;overflow: auto;border: 1px groove gray;z-index: 100;}
+        .dropdown-content a{color: solid black;padding: 10px;display: block;text-decoration: 10px;}
+        .dropdown-content a:hover {background-color : gray;color : white;} 
+        .show{display: inline-block ;}
+        .btn{background-color: #16dd66;font-size: 30px;padding: 3px;border: none;border-radius: 100%;}
+        #Input{background-color : azure;font-size: 16px;padding: 14px 20px 12px 15px;}
+        td{padding : 40px;}
+        box{border : 10px ;background-color:rgb(193, 228, 233);font-family: French Script MT;font-size: 50px;font-weight:600;color:rgb(168, 9, 9) ;padding-top: 2px;padding-bottom: 2px;padding-left: 20px;padding-right: 20px;border-radius: 300px;}
+        sub{font-family: forte;font-size: 25px;color:navy;}
+        p{font-family: Arial, Helvetica, sans-serif;text-indent: 30px;}
+        zoom img{transition: 0.5s all ease-in-out;border-radius: 30px;}
+        zoom:hover img{transform: scale(1.1);}
+        space{word-spacing: 50px;}
+        .pic{display: none;}
+        .autoslide{margin : 0;}
+        .autoslide-contain{max-width: 100%;position:relative;}
+        .fade{animation-name: fade;animation-duration: 2s;}
+        @keyframes fade {from {opacity: 0.3}to {opacity: 1}}
+        .side {
+            height: 100%;
+            width: 0;
+            z-index: 1;
+            position: fixed;
+            background-color: #333; /* Dark gray background for better visibility */
+            transition: 0.3s ease; /* Smooth transition for opening/closing */
+            overflow-x: hidden; /* Hide horizontal overflow */
+            padding-top: 60px; /* Space for top elements */
+            top: 0;
+            left: 0;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+        }
+
+        .side a {
+            padding: 15px 20px; /* Increased padding for better touch targets */
+            text-decoration: none;
+            font-size: 18px; /* Reduced font size for consistency */
+            color: #f1f1f1; /* Light color for better contrast */
+            display: block;
+            transition: 0.3s; /* Smooth transition for hover effects */
+        }
+
+        .side a:hover {
+            color: #4CAF50; /* Highlight color on hover */
+            background-color: rgba(255, 255, 255, 0.2); /* Subtle background color on hover */
+            border-radius: 5px; /* Rounded corners for hover effect */
+        }
+
+        .side.exit1 {
+            position: absolute;
+            top: 20px; /* Adjusted top positioning */
+            right: 20px; /* Positioned to the right */
+            font-size: 24px;
+            color: #f1f1f1; /* Light color for the exit button */
+        }    
+        #main {
+            transition: margin-left .7s;
+            padding-left: 20px;
+        }
+    
+
+
+        @media screen and (max-width: 768px) {
+            .side {
+                padding-top: 60px; /* Adjust padding for smaller screens */
+                font-size: 14px; /* Adjust font size for smaller screens */
+            }
+        }
+        #main { transition: margin-left .7s; padding-left: 20px;}
+        @media screen {.side{padding-top: 0 ;}.side{font-size: 10px;}}
+    </style>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" class="">
+</head>
+<body style=" background-color: #16dd66;"> 
+    <div id="sideBar" class="side">
+        <a href="javascript:void(0)" class="exit1" onclick="exitFun()" >&times;</a>
+        <a href="Cultures.html"> <i class="fa-solid fa-house-chimney"> </i>Home</a><br><br>
+        <a href="contact.html"> <i class="fa-sharp fa-solid fa-phone"></i>  Contact</a>
+    </div>
+    <div id="main">
+        <table>
+            <tr>
+                <td>
+                <space>
+                    <button onclick="OpenSide()"><i class="fa-solid fa-bars" style="font-size: 30px;"></i></button>
+                    <div class="dropdown">
+                        <button class="btn" onclick="Inwoke()" ><img src="https://imgs.search.brave.com/0uQrOQfGZqxyC4h6U4cKB0jc-Ee0PtkVwW9NBr_0H-s/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9hc3Nl/dHMuc3RpY2twbmcu/Y29tL3RodW1icy81/ODVlNGFlMWNiMTFi/MjI3NDkxYzMzOTMu/cG5n" height="25" width="25"></button>
+                        <div class="dropdown-content" id="DDC" >
+                            <input type="text" placeholder="Search..." id="Input" onkeyup="SearchFun()">
+                            <a href="#C1" >Rice</a>
+                            <a href="#C2" >Wheat</a>
+                            <a href="#C3" >Sugercane</a>
+                            <a href="#C4" >Groundnut</a>
+                            <a href="#C5" >Tea</a>
+                            <a href="#C6" >Pulses</a>
+                            <a href="#C7" >Millets</a> 
+                        </div>
+                    </div>
+                </space>
+                </td>
+                <td style="padding-left: 360px;">
+                    <heading style="font-family : French Script MT;color:indigo; font-size: 80px;">Indian Crops</heading>
+                </td>
+            </tr>
+        </table>
+        <div class="autoslide-contain">
+            <div class="pic fade">
+                <img src="https://media.istockphoto.com/id/622925154/photo/ripe-rice-in-the-field-of-farmland.jpg?s=612x612&w=0&k=20&c=grtA7L3dm_SP80Fdt-PpIwu5GYacZygErTDUDNIKHwY=" width="100%" height="500px">
+            </div>
+            <div class="pic fade">
+                <img src="https://www.farmingindia.in/wp-content/uploads/2019/05/wheat-cultivation-india.jpg" width="100%" height="500px">
+            </div>
+            <div class="pic fade">
+                <img src="https://agriculturalinformation4u.com/wp-content/uploads/2020/05/Sugarcane-Growing-Conditions.jpg" width="100%" height="500px">
+            </div>
+            <div class="pic fade">
+                <img src="https://theindianblog.in/wp-content/uploads/2020/10/Groundnut-Producing.jpg" width="100%" height="500px">
+            </div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <center>
+            <box id="C1" class=" w3-animate-zoom" onclick="Rice()">
+                Rice
+            </box>
+            <table>
+                <tr>
+                    <td><p>India is one of the leading producers of this crop. Rice is the basic food crop and being a tropical plant, it flourishes comfortably in a hot and humid climate. Rice is mainly grown in rain-fed areas that receive heavy annual rainfall. That is why it is fundamentally a kharif crop in India.</p><p>Kharif or winter is the main rice growing season in the country. It is known as Winter Rice or Kharif Rice as per the harvesting time. The sowing time of winter (kharif) rice is June-July and it is harvested in November-December.</p><p>West Bengal is the largest rice producing state in India. Almost half of its arable land is under rice cultivation. In the fiscal year 2016, the state produced about 15.75 million tonnes of rice over 5.46 million hectare cultivable area.</p></td>
+                    <td><zoom><img src="https://media.istockphoto.com/id/622925154/photo/ripe-rice-in-the-field-of-farmland.jpg?s=612x612&w=0&k=20&c=grtA7L3dm_SP80Fdt-PpIwu5GYacZygErTDUDNIKHwY=" height="200" width="300"></zoom></td>
+                </tr>
+            </table>
+        </center>
+        <center>
+            <box id="C2" class=" w3-animate-zoom" onclick="Wheat()"> Wheat</box>
+            <table>
+                <tr>
+                    <td><zoom><img src="https://www.farmingindia.in/wp-content/uploads/2019/05/wheat-cultivation-india.jpg" height="200" width="300"></zoom></td>
+                    <td><p>Wheat is the main cereal crop in India. The total area under the crop is about 29.8 million hectares in the country.</p><p>Wheat is the second most important staple food after rice consumed by 65% of the population in India and is likely to increase further due to changes in food habits. Wheat is mostly consumed in the form of 'chapati' in our country for which bread wheat is cultivated in nearly 95 per cent of the cropped area.</p><p>Major wheat-growing states in India are Uttar Pradesh, Punjab, Haryana, Madhya Pradesh, Rajasthan, Bihar and Gujarat.</p></td>
+                </tr>
+            </table>
+        </center>
+        <center>
+            <box id="C3" class=" w3-animate-zoom" onclick="Sugercane()"> Sugercane </box>
+            <table>
+                <tr>
+                    <td><p>Cultivation of sugarcane in India dates back to the Vedic period. The earliest mention of sugarcane cultivation is found in Indian writings of the period 1400 to 1000 B.C. It is now widely accepted that India is the original home of Saccharum species.</p><p>Sugarcane is the main source of sugar in India and holds a prominent position as a cash crop. Uttar Pradesh is the largest producer of sugarcane in India also Uttar Pradesh is also called as Suger Bowl of India, followed by Maharashtra and Karnataka.</p><p>Sugercane is a diverse industry combining the agricultural activities of sugarcane cultivation with the manufacture of raw and refined sugar, syrups, specialised sugars and a range of by-products.</p></td>
+                    <td><zoom><img src="https://agriculturalinformation4u.com/wp-content/uploads/2020/05/Sugarcane-Growing-Conditions.jpg" height="200" width="300"></zoom></td>
+                </tr>
+            </table>
+        </center>
+        <center>
+            <box id="C4" class=" w3-animate-zoom" onclick="Groundnut()"> Groundnut</box>
+            <table>
+            <tr >
+                <td><zoom><img src="https://theindianblog.in/wp-content/uploads/2020/10/Groundnut-Producing.jpg" height="200" width="300"></zoom></td>
+                <td><p>Groundnut is the major oil seed crop in India and it plays a major role in bridging the vegetable oil deficit in the country. Groundnuts in India are available throughout the year due to a two-crop cycle harvested in March and October.            </p><p>In India, it is grown in an area of about 85 lakh hectares with the total production of 84 lakh tonnes. Its cultivation in India is mainly confined to the States of Gujarat, Andhra Pradesh, Tamil Nadu, Karnataka, Maharashtra, Madhya Pradesh, Uttar Pradesh, Rajasthan, Page 2 Punjab and Orissa.</p></td>
+            </tr>
+        </table>
+        </center>
+        <center>
+            <box id="C5" class=" w3-animate-zoom" onclick="Tea()"> Tea </box>
+            <table>
+                <tr>
+                    <td><p>Tea is one of the most important cash crops and plays a significant role in rural development, poverty reduction and food security in exporting and developing countries. It is a principle source of livelihood for millions of smallholder producers. Tea has also a cultural significance in many societies.</p><p>The Assam valley and Cachar are the two tea producing regions in Assam. In West Bengal, Dooars, Terai and Darjeeling are the three major tea producer regions. The southern part of India produces about 17% of the country's total production with the major producing states being Tamil Nadu, Kerala, and Karnataka.</p></td>
+                    <td><zoom><img src="https://imgs.search.brave.com/d7qWgrYDNV7HvpYwSoo6PRw9l_UsahbNnwtK_LEOliw/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMTU3/MzA4ODc3L3Bob3Rv/L2dyb3dpbmctdGVh/LWxlYXZlcy5qcGc_/cz02MTJ4NjEyJnc9/MCZrPTIwJmM9ODhx/U0VUQ2VKWDJZMmQz/TS04X25ZVWVpek41/Vl9xMTdOZ0EwT0cx/WExoND0" height="200" width="300"></zoom></td>
+                </tr>
+            </table>
+        </center>
+        <center>
+            <box id="C6" class=" w3-animate-zoom" onclick="Pulses()"> Pulses</box>
+            <table>
+            <tr >
+                <td><zoom><img src="https://imgs.search.brave.com/PWYgipjgj-ROfyaP6hybReXZWMWsaR9zsWi-k4mUS8o/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMTYz/NzI5NjQ3L3Bob3Rv/L2FuLXVwLWNsb3Nl/LXBpY3R1cmUtb2Yt/b3JnYW5pYy1sZWd1/bWVzLmpwZz9zPTYx/Mng2MTImdz0wJms9/MjAmYz1FOU5kY1Ny/NFN4UmFZdEtqampr/NnJGb0h2dzY5bW9v/WDVhWTc4SjM0RE1Z/PQ" height="200" width="300"></zoom></td>
+                <td><p>Pulses are consumed as Dal, which is a cheap source of plant protein. These are consumed because of body building properties having presence of various amino acids. These also have medicinal properties. By products of pulses like leaves, pod coats and bran are given to animals in the form of dry fodder. Some pulse crops like Gram, Lobia, Urdbean & Moongbean are fed to animals as green fodder. Moong plants are also used as green manure which improve soil health and adds nutrient into the soil.</p><p>Bengal Gram (Desi Chick Pea / Desi Chana), Pigeon Peas (Arhar / Toor / Red Gram), Green Beans (Moong Beans), Chick Peas (Kabuli Chana), Black Matpe (Urad / Mah / Black Gram), Red Kidney Beans (Rajma), Black Eyed Peas (Lobiya), Lentils (Masoor), White Peas (Matar) are major pulses grown and consumed in India</p></td>
+            </tr>
+        </table>
+        </center>
+        <center>
+            <box id="C7" class=" w3-animate-zoom" onclick="Millets()"> Millets </box>
+            <table>
+                <tr>
+                    <td><p>The millets commonly grown in India include Jowar (sorghum), Bajra (pearl millet), ragi (finger millet), Jhangora (barnyard millet), Barri (Proso or common millet), Kangni (foxtail/ Italian millet), Kodra (Kodo millet) etc.</p><p>Millets such as sorghum (jowar), pearl millet (bajra), foxtail millet (kangni), finger millet (ragi), Barnyard millet, Kodo millet, Little Millet, Proso Millet are amongst the healthiest millet grains available in India </p></td>
+                    <td><zoom><img src="https://gumlet.vikatan.com/vikatan%2F2020-02%2Feff26944-a738-435d-adf1-b78d551ea963%2FD_2.jpg?rect=0%2C0%2C2592%2C1458&auto=format%2Ccompress&w=1200" height="200" width="300"></zoom></td>
+                </tr>
+            </table>
+        </center>
+    </div>  
+    <div id="identity1" class="class1" >
+        <div class="w3-animate-zoom">
+            <div class="class1-inner">
+                <span onclick="Closing()" class="close"><i class="fa-solid fa-xmark"></i></span>
+                <center>
+                    <box>Rice</box>
+                    <table>
+                    <tr >
+                        <td><img style="border-radius: 10%;" src="https://media.istockphoto.com/id/622925154/photo/ripe-rice-in-the-field-of-farmland.jpg?s=612x612&w=0&k=20&c=grtA7L3dm_SP80Fdt-PpIwu5GYacZygErTDUDNIKHwY=" height="200" width="300"></td>
+                        <td><p>India is one of the leading producers of this crop. Rice is the basic food crop and being a tropical plant, it flourishes comfortably in a hot and humid climate. Rice is mainly grown in rain-fed areas that receive heavy annual rainfall. That is why it is fundamentally a kharif crop in India.</p><p>Kharif or winter is the main rice growing season in the country. It is known as Winter Rice or Kharif Rice as per the harvesting time. The sowing time of winter (kharif) rice is June-July and it is harvested in November-December.</p><p>West Bengal is the largest rice producing state in India. Almost half of its arable land is under rice cultivation. In the fiscal year 2016, the state produced about 15.75 million tonnes of rice over 5.46 million hectare cultivable area.</p></td>
+                    </tr>
+                </table>
+                </center> 
+            </div>
+        </div>
+    </div>
+    <div id="identity2" class="class1" >
+        <div class="w3-animate-zoom">
+            <div class="class1-inner">
+                <span onclick="Closing()" class="close"><i class="fa-solid fa-xmark"></i></span>
+                <center>
+                    <box>Wheat</box>
+                    <table>
+                    <tr >
+                        <td><img style="border-radius: 10%;" src="https://www.farmingindia.in/wp-content/uploads/2019/05/wheat-cultivation-india.jpg" height="200" width="300"></td>
+                        <td><p>Wheat is the main cereal crop in India. The total area under the crop is about 29.8 million hectares in the country.</p><p>Wheat is the second most important staple food after rice consumed by 65% of the population in India and is likely to increase further due to changes in food habits. Wheat is mostly consumed in the form of 'chapati' in our country for which bread wheat is cultivated in nearly 95 per cent of the cropped area.</p><p>Major wheat-growing states in India are Uttar Pradesh, Punjab, Haryana, Madhya Pradesh, Rajasthan, Bihar and Gujarat.</p></td>
+                    </tr>
+                </table>
+                </center> 
+            </div>
+        </div>
+    </div>
+    <div id="identity3" class="class1" >
+        <div class="w3-animate-zoom">
+            <div class="class1-inner">
+                <span onclick="Closing()" class="close"><i class="fa-solid fa-xmark"></i></span>
+                <center>
+                    <box>Sugercane</box>
+                    <table>
+                    <tr >
+                        <td><img style="border-radius: 10%;" src="https://agriculturalinformation4u.com/wp-content/uploads/2020/05/Sugarcane-Growing-Conditions.jpg" height="200" width="300"></td>
+                        <td><p>Cultivation of sugarcane in India dates back to the Vedic period. The earliest mention of sugarcane cultivation is found in Indian writings of the period 1400 to 1000 B.C. It is now widely accepted that India is the original home of Saccharum species.</p><p>Sugarcane is the main source of sugar in India and holds a prominent position as a cash crop. Uttar Pradesh is the largest producer of sugarcane in India also Uttar Pradesh is also called as Suger Bowl of India, followed by Maharashtra and Karnataka.</p><p>Sugercane is a diverse industry combining the agricultural activities of sugarcane cultivation with the manufacture of raw and refined sugar, syrups, specialised sugars and a range of by-products.</p></td>
+                    </tr>
+                </table>
+                </center> 
+            </div>
+        </div>
+    </div>
+    <div id="identity4" class="class1" >
+        <div class="w3-animate-zoom">
+            <div class="class1-inner">
+                <span onclick="Closing()" class="close"><i class="fa-solid fa-xmark"></i></span>
+                <center>
+                    <box>Groundnut</box>
+                    <table>
+                    <tr >
+                        <td><img style="border-radius: 10%;" src="https://theindianblog.in/wp-content/uploads/2020/10/Groundnut-Producing.jpg" height="200" width="300"></td>
+                        <td><p>Groundnut is the major oil seed crop in India and it plays a major role in bridging the vegetable oil deficit in the country. Groundnuts in India are available throughout the year due to a two-crop cycle harvested in March and October.            </p><p>In India, it is grown in an area of about 85 lakh hectares with the total production of 84 lakh tonnes. Its cultivation in India is mainly confined to the States of Gujarat, Andhra Pradesh, Tamil Nadu, Karnataka, Maharashtra, Madhya Pradesh, Uttar Pradesh, Rajasthan, Page 2 Punjab and Orissa.</p></td>
+                    </tr>
+                </table>
+                </center> 
+            </div>
+        </div>
+    </div>
+    <div id="identity5" class="class1" >
+        <div class="w3-animate-zoom">
+            <div class="class1-inner">
+                <span onclick="Closing()" class="close"><i class="fa-solid fa-xmark"></i></span>
+                <center>
+                    <box>Tea</box>
+                    <table>
+                    <tr >
+                        <td><img style="border-radius: 10%;" src="https://images.newindianexpress.com/uploads/user/imagelibrary/2022/10/30/w900X450/An_uphill_trudge.jpg?w=400&dpr=2.6" height="200" width="300"></td>
+                        <td><p>Tea is one of the most important cash crops and plays a significant role in rural development, poverty reduction and food security in exporting and developing countries. It is a principle source of livelihood for millions of smallholder producers. Tea has also a cultural significance in many societies.</p><p>The Assam valley and Cachar are the two tea producing regions in Assam. In West Bengal, Dooars, Terai and Darjeeling are the three major tea producer regions. The southern part of India produces about 17% of the country's total production with the major producing states being Tamil Nadu, Kerala, and Karnataka.</p></td>
+                    </tr>
+                </table>
+                </center> 
+            </div>
+        </div>
+    </div>
+    <div id="identity6" class="class1" >
+        <div class="w3-animate-zoom">
+            <div class="class1-inner">
+                <span onclick="Closing()" class="close"><i class="fa-solid fa-xmark"></i></span>
+                <center>
+                    <box>Pulses</box>
+                    <table>
+                    <tr >
+                        <td><img style="border-radius: 10%;" src="https://marketplace.commodity-board.com/wp-content/uploads/2021/10/Pulses-Producing-States-in-India.jpg" height="200" width="300"></td>
+                        <td><p>Pulses are consumed as Dal, which is a cheap source of plant protein. These are consumed because of body building properties having presence of various amino acids. These also have medicinal properties. By products of pulses like leaves, pod coats and bran are given to animals in the form of dry fodder. Some pulse crops like Gram, Lobia, Urdbean & Moongbean are fed to animals as green fodder. Moong plants are also used as green manure which improve soil health and adds nutrient into the soil.</p><p>Bengal Gram (Desi Chick Pea / Desi Chana), Pigeon Peas (Arhar / Toor / Red Gram), Green Beans (Moong Beans), Chick Peas (Kabuli Chana), Black Matpe (Urad / Mah / Black Gram), Red Kidney Beans (Rajma), Black Eyed Peas (Lobiya), Lentils (Masoor), White Peas (Matar) are major pulses grown and consumed in India</p></td>
+                    </tr>
+                </table>
+                </center> 
+            </div>
+        </div>
+    </div>
+    <div id="identity7" class="class1" >
+        <div class="w3-animate-zoom">
+            <div class="class1-inner">
+                <span onclick="Closing()" class="close"><i class="fa-solid fa-xmark"></i></span>
+                <center>
+                    <box>Millets</box>
+                    <table>
+                    <tr >
+                        <td><img style="border-radius: 10%;" src="https://gumlet.vikatan.com/vikatan%2F2020-02%2Feff26944-a738-435d-adf1-b78d551ea963%2FD_2.jpg?rect=0%2C0%2C2592%2C1458&auto=format%2Ccompress&w=1200" height="200" width="300"></td>
+                        <td><p>The millets commonly grown in India include Jowar (sorghum), Bajra (pearl millet), ragi (finger millet), Jhangora (barnyard millet), Barri (Proso or common millet), Kangni (foxtail/ Italian millet), Kodra (Kodo millet) etc.</p><p>Millets such as sorghum (jowar), pearl millet (bajra), foxtail millet (kangni), finger millet (ragi), Barnyard millet, Kodo millet, Little Millet, Proso Millet are amongst the healthiest millet grains available in India </p></td>
+                    </tr>
+                </table>
+                </center> 
+            </div>
+        </div>
+    </div>
+    <script>
+        function Inwoke(){
+         document.getElementById("DDC").classList.toggle("show");
+        }
+        function SearchFun() {
+            var input, filter, ul, li, a, i;
+            input = document.getElementById("Input");
+            filter = input.value.toUpperCase();
+            div = document.getElementById("DDC");
+            a = div.getElementsByTagName("a");
+            for (i = 0; i < a.length; i++) {
+                txtValue = a[i].textContent || a[i].innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    a[i].style.display = "";
+                } else {
+                    a[i].style.display = "none";
+                }
+            }
+        }
+        let Index = 0;
+        fun();
+        function fun(){
+            let x = document.getElementsByClassName("pic");
+            for(let i = 0 ; i < x.length ; i++ ){
+                x[i].style.display = "none";
+            }
+            Index++;
+            if (Index > x.length){
+                Index = 1;
+            }
+            x[Index-1].style.display="block";
+            setTimeout(fun,3000);
+        }
+
+        function OpenSide(){
+            document.getElementById("sideBar").style.width = "250px";
+            document.getElementById("main").style.marginLeft = "250px";
+        }
+
+        function exitFun(){
+            document.getElementById("sideBar").style.width = "0";
+            document.getElementById("main").style.marginLeft = "0";
+        }
+
+        var popup1 = document.getElementById("identity1");
+        var popup2 = document.getElementById("identity2");
+        var popup3 = document.getElementById("identity3");
+        var popup4 = document.getElementById("identity4");
+        var popup5 = document.getElementById("identity5");
+        var popup6 = document.getElementById("identity6");
+        var popup7 = document.getElementById("identity7");
+        var pop1 = document.getElementById("C1");
+        var pop2 = document.getElementById("C2");
+        var pop3 = document.getElementById("C3");
+        var pop4 = document.getElementById("C4");
+        var pop5 = document.getElementById("C5");
+        var pop6 = document.getElementById("C6");
+        var pop7 = document.getElementById("C7");
+        var span = document.getElementsByClassName("close");
+        function Rice(){
+            popup1.style.display = "block";
+        }
+        function Wheat(){
+            popup2.style.display = "block";
+        }
+        function Sugercane(){
+            popup3.style.display = "block";
+        }
+        function Groundnut(){
+            popup4.style.display = "block";
+        }
+        function Tea(){
+            popup5.style.display = "block";
+        }
+        function Pulses(){
+            popup6.style.display = "block";
+        }
+        function Millets(){
+            popup7.style.display = "block";
+        }
+        function Closing(){
+            popup7.style.display = "none";
+            popup6.style.display = "none";
+            popup5.style.display = "none";
+            popup4.style.display = "none";
+            popup3.style.display = "none";
+            popup2.style.display = "none";
+            popup1.style.display = "none";
+        }
+    </script>
+    </body>
+</html>

@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head style="background-color:deepskyblue;">
+    <title>Crops</title>
+    <style>
+        html{scroll-behavior: smooth; }
+        button1{background-color:aquamarine;padding: 20px;font-size: 25px;border-radius: 20px;}
+        button1:hover{background-color: aqua;padding: 20px;font-size: 25px;}
+        .class1{display: none;position: fixed;padding-top: 50px;padding-bottom: 100px;top: 0;
+            left: 0;width: 100%;height: 100%;overflow: auto;background-color: rgb(0, 191, 255);
+            background-color: rgb(0, 191, 255,0.2); }   
+        .class1-inner{ background-color: cornflowerblue; margin: auto; width: 70%; height: 70%;
+            overflow:visible;border: none;padding:40px;border-radius: 18px;}    
+        .close{color:rgb(34, 36, 37);float: right;font-size: 40px;} 
+        .close:hover{color:black;font-size: 43px; }
+        .dropdown{position: relative;display: inline-block;}
+        .dropdown-content{display: none;position:absolute ;background-color: white;min-width: 230px;
+            overflow: auto;border: 1px groove gray;z-index: 100;}
+        .dropdown-content a{color: solid black;padding: 10px;display: block;text-decoration: 10px;}
+        .dropdown-content a:hover { background-color : gray; color : white;} 
+        .show{display: inline-block ;}
+        .btn{ background-color: deepskyblue;font-size:30px;padding: 3px;border: none;border-radius: 100%;}
+        #Input{background-color : azure;font-size: 16px;padding: 14px 20px 12px 15px;}
+        td{ padding : 40px;}
+        box{border : 10px ;background-color:rgb(193, 228, 233);font-family: French Script MT;
+            font-size: 50px;font-weight:600;color:rgb(168, 9, 9) ;padding-top: 2px;padding-bottom: 2px;
+            padding-left: 20px;padding-right: 20px;border-radius: 300px;}
+        sub{font-family: forte;font-size: 25px;color:navy;}
+        p{font-family: Arial, Helvetica, sans-serif;text-indent: 30px;}
+        zoom img{transition: 0.5s all ease-in-out;border-radius: 30px;}
+        zoom:hover img{transform: scale(1.1); }
+        space{word-spacing: 50px; }
+        .pic{display: none;}
+        .autoslide{margin : 0;}
+        .autoslide-contain{max-width: 100%;position:relative;}
+        .fade{animation-name: fade;animation-duration: 2s; }
+        @keyframes fade {from {opacity: 0.3}to {opacity: 1}}
+        .side {
+            height: 100%;
+            width: 0;
+            z-index: 1;
+            position: fixed;
+            background-color: #333; /* Dark gray background for better visibility */
+            transition: 0.3s ease; /* Smooth transition for opening/closing */
+            overflow-x: hidden; /* Hide horizontal overflow */
+            padding-top: 60px; /* Space for top elements */
+            top: 0;
+            left: 0;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+        }
+
+        .side a {
+            padding: 15px 20px; /* Increased padding for better touch targets */
+            text-decoration: none;
+            font-size: 18px; /* Reduced font size for consistency */
+            color: #f1f1f1; /* Light color for better contrast */
+            display: block;
+            transition: 0.3s; /* Smooth transition for hover effects */
+        }
+
+        .side a:hover {
+            color: #4CAF50; /* Highlight color on hover */
+            background-color: rgba(255, 255, 255, 0.2); /* Subtle background color on hover */
+            border-radius: 5px; /* Rounded corners for hover effect */
+        }
+
+        .side.exit1 {
+            position: absolute;
+            top: 20px; /* Adjusted top positioning */
+            right: 20px; /* Positioned to the right */
+            font-size: 24px;
+            color: #f1f1f1; /* Light color for the exit button */
+        }    
+        #main {
+            transition: margin-left .7s;
+            padding-left: 20px;
+        }
+    
+
+
+        @media screen and (max-width: 768px) {
+            .side {
+                padding-top: 60px; /* Adjust padding for smaller screens */
+                font-size: 14px; /* Adjust font size for smaller screens */
+            }
+        }
+        #main {transition: margin-left .7s; padding-left: 20px;}
+        @media screen {.side{padding-top: 0 ;}
+            .side{font-size: 10px;}}
+    </style>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" class="">
+</head>
+<body style=" background-color:deepskyblue;"> 
+    <div id="sideBar" class="side">
+        <a href="javascript:void(0)" class="exit1" onclick="exitFun()" >&times;</a>
+        <a href="Cultures.html"> <i class="fa-solid fa-house-chimney"> </i>Home</a>
+        <br>
+        <br>
+        <a href="contact.html"> <i class="fa-sharp fa-solid fa-phone"></i>  Contact</a>
+    </div>
+    <div id="main">
+        <table>
+            <tr>
+                <td>
+                <space>
+                    <button onclick="OpenSide()"><i class="fa-solid fa-bars" style="font-size: 30px;"></i></button>
+                    <div class="dropdown">
+                        <button class="btn" onclick="Inwoke()" ><img src="https://imgs.search.brave.com/0uQrOQfGZqxyC4h6U4cKB0jc-Ee0PtkVwW9NBr_0H-s/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9hc3Nl/dHMuc3RpY2twbmcu/Y29tL3RodW1icy81/ODVlNGFlMWNiMTFi/MjI3NDkxYzMzOTMu/cG5n" height="25" width="25"></button>
+                        <div class="dropdown-content" id="DDC" >
+                            <input type="text" placeholder="Search..." id="Input" onkeyup="SearchFun()">
+                            <a href="#C1" >Ganesh_Charturdhi</a>
+                            <a href="#C2" >Ramjan</a>
+                            <a href="#C3" >Dasara</a>
+                            <a href="#C4" >Diwali</a>
+                            <a href="#C5" >Christams</a>
+                            <a href="#C6" >Sankranthi</a>
+                            <a href="#C7" >Onam</a> 
+                        </div>
+                    </div>
+                </space>
+                </td>
+                <td style="padding-left: 360px;">
+                    <heading style="font-family : French Script MT;color:indigo; font-size: 80px;">Indian Festivals</heading>
+                </td>
+            </tr>
+        </table>
+        <div class="autoslide-contain">
+            <div class="pic fade">
+                <img src="https://arunachalobserver.org/wp-content/uploads/2022/08/Ganesh-Chaturthi-Celebration-in-India.jpg" width="100%" height="500px">
+            </div>
+            <div class="pic fade">
+                <img src="https://gumlet.assettype.com/Prabhatkhabar%2F2020-04%2F6f43bf2c-658f-4c36-9542-6a3f51db8d70%2F1111.jpg?rect=0%2C43%2C1203%2C677&format=webp&w=400&dpr=2.6" width="100%" height="500px">
+            </div>
+            <div class="pic fade">
+                <img src="https://media.istockphoto.com/id/461790589/photo/durga-puja-festival.jpg?s=612x612&w=0&k=20&c=lLzbiOfN21xji8QQZw6dE3OMouTnSEPBepF2w7PIFPA=" width="100%" height="500px">
+            </div>
+            <div class="pic fade">
+                <img src="https://images.unsplash.com/photo-1577083753695-e010191bacb5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8ZGl3YWxpfGVufDB8fDB8fA%3D%3D&w=1000&q=80" width="100%" height="500px">
+            </div>
+            <div class="pic fade">
+                <img src="https://www.holidify.com/blog/wp-content/uploads/2015/07/13896645072_c994520879_k.jpg" width="100%" height="500px">
+            </div>
+            <div class="pic fade">
+                <img src="http://twocircles.net/wp-content/uploads/2019/09/Snake-Boat-Race-in-Kerala.jpg" width="100%" height="500px">
+            </div>
+        </div>
+        <br><br><br><br>
+        <center>
+            <box id="C1" class=" w3-animate-zoom" onclick="Ganesh()">
+                Ganesh Chaturthi
+            </box>
+            <table>
+                <tr>
+                    <td><p>Ganesh Chaturthi, also called Vinayaka Chaturthi, in Hinduism, 10-day festival marking the birth of the elephant-headed deity Ganesha, the god of prosperity and wisdom. It begins on the fourth day (chaturthi) of the month of Bhadrapada (August–September), the sixth month of the Hindu calendar.At the start of the festival, idols of Ganesha are placed on raised platforms in homes or in elaborately decorated outdoor tents. The worship begins with the pranapratishtha, a ritual to invoke life in the idols, followed by shhodashopachara, or the 16 ways of paying tribute. Amid the chanting of Vedic hymns from religious texts like the Ganesh Upanishad, the idols are anointed with red sandalwood paste and yellow and red flowers. Ganesha is also offered coconut, jaggery, and 21 modaks (sweet dumplings), considered to be Ganesha’s favourite food.</p><p>At the conclusion of the festival, the idols are carried to local rivers in huge processions accompanied by drumbeats, devotional singing, and dancing. There they are immersed, a ritual symbolizing Ganesha’s homeward journey to Mount Kailas—the abode of his parents, Shiva and Parvati</p></td>
+                    <td><zoom><img src="https://arunachalobserver.org/wp-content/uploads/2022/08/Ganesh-Chaturthi-Celebration-in-India.jpg" height="200" width="300"></zoom></td>
+                </tr>
+            </table>
+        </center>
+        <center>
+            <box id="C2" class=" w3-animate-zoom" onclick="Ramjan()">Ramjan</box>
+            <table>
+                <tr>
+                    <td><zoom><img src="https://gumlet.assettype.com/Prabhatkhabar%2F2020-04%2F6f43bf2c-658f-4c36-9542-6a3f51db8d70%2F1111.jpg?rect=0%2C43%2C1203%2C677&format=webp&w=400&dpr=2.6" height="200" width="300"></zoom></td>
+                    <td><p>The ninth month of the Islamic Calendar, a month of strict spiritual discipline to commemorate the first revelation of the Holy Quran to Mohammed, the month during which severe norms for fasting is enforced as a pathway for reaching the ultimate eternity is the month of Ramadan, Romanized as Ramzan. The word Ramadan in Arabic means extreme dryness and intolerable heat. In the Gregorian calendar, this falls between the months of July and August.</p><p>The festival is so popular across the world because of the prevailing practices among the Islamic People. Whenever you hear the word Ramadan, you are immediately reminded of the fasting the Muslims adhere to strictly. As for as the Islamic beliefs are concerned, the fasting is an act of spiritual purification of the mind and the body.</p></td>
+                </tr>
+            </table>
+        </center>
+        <center>
+            <box id="C3" class=" w3-animate-zoom" onclick="Dasara()"> Dasara </box>
+            <table>
+                <tr>
+                    <td><p>Dussehra, also called Dasara or Vijayadashami, in Hinduism, holiday marking the triumph of Rama, an avatar of Vishnu, over the 10-headed demon king Ravana, who abducted Rama’s wife, Sita. The festival’s name is derived from the Sanskrit words dasha (“ten”) and hara (“defeat”). Symbolizing the victory of good over evil, Dussehra is celebrated on the 10th day of the month of Ashvina (September–October), the seventh month of the Hindu calendar, with the appearance of the full moon, an event called the “bright fortnight” (shukla paksha). Dussehra coincides with the culmination of the nine-day Navratri festival and with the tenth day of the Durga Puja festival. For many, it marks the beginning of preparation for Diwali, which occurs 20 days after Dussehra.</p><p>Dussehra is celebrated with great fervour and fanfare. In North India, it incorporates Ram Lila, a gala theatrical enactment of Rama’s life story. </p></td>
+                    <td><zoom><img src="https://media.istockphoto.com/id/461790589/photo/durga-puja-festival.jpg?s=612x612&w=0&k=20&c=lLzbiOfN21xji8QQZw6dE3OMouTnSEPBepF2w7PIFPA=" height="200" width="300"></zoom></td>
+                </tr>
+            </table>
+        </center>
+        <center>
+            <box id="C4" class=" w3-animate-zoom" onclick="Diwali()"> Diwali</box>
+            <table>
+            <tr >
+                <td><zoom><img src="https://images.unsplash.com/photo-1577083753695-e010191bacb5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8ZGl3YWxpfGVufDB8fDB8fA%3D%3D&w=1000&q=80" height="200" width="300"></zoom></td>
+                <td><p>The festive time of “Deepavali”, The Festival of Lights marks new beginnings and the triumph of good over evil, and light over darkness. Also popular as Deepawali or Diwali the ‘Festival of Lights’ coincides with harvest and new year celebrations.</p><p>When we ignite a candle or an oil / ghee lamp, it is to open light in the physical space. Similarly, on the auspicious occasion of Deepavali when blessed candles and lamps are lite, they illuminate the energetic pathway to Open the Light within us. That is why for seekers of Light, Deepavali has a special significance and value as it is a once in a year opportunity. The festivity of lights reminds us of the importance of knowledge, significance of understanding self and knowing and seeking the good and right pathway. Deepavali is the celebration of our inner light over spiritual darkness, of knowledge over ignorance and right over wrong.</p></td>
+            </tr>
+        </table>
+        </center>
+        <center>
+            <box id="C5" class=" w3-animate-zoom" onclick="Christmas()"> Christmas </box>
+            <table>
+                <tr>
+                    <td><p>Many Christians in India celebrate Jesus Christ's birth on on Christmas Day, which is annually held on December 25. The celebrations are most noticeable in states where there are many Christians. Christmas Day is a gazetted holiday in India</p><p>Many Christians mark Christmas Day by attending special church services, spending time with family members, wearing new clothes and eating a festive meal. Some families exchange gifts or give small presents or sweets to children. They may display small electric lamps or small clay oil-burning lamps and decorate their homes with banana or mango leaves. Some also put up a nativity scene with clay figures or a Christmas tree. Christmas trees in India are usually imitation pine trees or branches of native trees or bushes. Some stores and malls may put up Christmas decorations and have actors playing Santa.</p></td>
+                    <td><zoom><img src="https://www.tamilnadutourism.com/blog/wp-content/uploads/2019/11/Christams-768x395.jpg" height="200" width="300"></zoom></td>
+                </tr>
+            </table>
+        </center>
+        <center>
+            <box id="C6" class=" w3-animate-zoom" onclick="Sankranthi()"> Sankranthi</box>
+            <table>
+            <tr >
+                <td><zoom><img src="https://gumlet.assettype.com/indiansingulf%2F2020-01%2F83fe46c3-0201-404f-b582-68854709e715%2FBhogi.webp?rect=0%2C21%2C700%2C394&auto=format%2Ccompress&fit=max&format=webp&w=480&dpr=2.6" height="200" width="300"></zoom></td>
+                <td><p>Sankranthi Is the Festival Which is Celebrated in the month January and It is majourly celebrated in Telugu states (AndraPradesh & Telengana). Sankranthi Festival consists of three days. They are Bhogi ,Makara Sankranthi , Kanuma</p><center><sub style="font-size: 30px;">Bhogi</sub></center><p>    The First day celebrated in Sankranthi is called 'Bhogi' . The Bhogi festival is celebrated in honour of Lord Indra who is also known as the god of rain . It is usually celebrated on 13th January .  on this day people will WokeUp early and they will wore New cloths and Devote to 'Bonfire'.</p></td>
+            </tr>
+        </table>
+        </center>
+        <center>
+            <table>
+                <tr>
+                    <td><p><center><sub style="font-size: 30px;">Makara Sankranthi</sub></center><p>Makar means Capricorn and Sankranti means transition, which makes Makar Sankranti means the transition of the sun in the Capricorn (Zodiac sign). In addition, this occasion is a very sacred and auspicious occasion according to Hinduism and they celebrate it as a festival.</p><center><sub style="font-size: 30px;">Kanuma </sub></center><p>Kanuma, the third day of Sankranti, was celebrated with traditional fervour and joy. Worship of cattle, merry-making and feasts marked the festival, dedicated to cattle that help people in agricultural activities. The day also signifies the lifting of the Govardhan hill by Lord Krishna to protect the people of Gokulam</p></td>
+                    <td><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQbe67zN9vcE5CDuuTsbEAGZgrkLdK7APGKdkQ2vtbMBwlFzDvaw10PGdTLIZpuMQBxCg&usqp=CAU" height="200" width="300"></td>
+                </tr>
+            </table>
+        </center>
+        <center>
+            <box id="C7" class=" w3-animate-zoom" onclick="Onam()"> Onam </box>
+            <table>
+                <tr>
+                    <td><zoom><img src="http://twocircles.net/wp-content/uploads/2019/09/Snake-Boat-Race-in-Kerala.jpg" height="200" width="300"></zoom></td>
+                    <td><p>Onam is an annual Indian harvest festival celebrated predominantly by the Hindus of Kerala.A major annual event for Keralites, it is the official festival of the state and includes a spectrum of cultural events</p><p>Onam commemorates Vamana and King Mahabali. According to Hindu legends, Remembrance of the good governance under the rule of king Mahabali. Vamana asked Mahabali for three feet of land as his wish from the generous Mahabali. Since denying gifts to Brahmin is considered a sacrilege, Mahabali agreed to fulfill Vamana’s wish. In the first two feet Vamana measured the entirety of universe, leaving nowhere to place his third foot. Mahabali offered his own head to place his third feet making the wish complete. However, witnessing Mahabali’s generosity, Vishnu granted the king's sole wish to visit his land and people once every year. This homecoming of Mahabali is celebrated as Onam in Kerala every year.</p></td>
+                </tr>
+            </table>
+        </center>
+    </div>  
+    <div id="identity1" class="class1" >
+        <div class="w3-animate-zoom">
+            <div class="class1-inner">
+                <span onclick="Closing()" class="close"><i class="fa-solid fa-xmark"></i></span>
+                <center>
+                    <box>Ganesh Charturdhi</box>
+                    <table>
+                    <tr >
+                        <td><img style="border-radius: 10%;" src="https://arunachalobserver.org/wp-content/uploads/2022/08/Ganesh-Chaturthi-Celebration-in-India.jpg" height="200" width="300"></td>
+                        <td><p>Ganesh Chaturthi, also called Vinayaka Chaturthi, in Hinduism, 10-day festival marking the birth of the elephant-headed deity Ganesha, the god of prosperity and wisdom. It begins on the fourth day (chaturthi) of the month of Bhadrapada (August–September), the sixth month of the Hindu calendar.At the start of the festival, idols of Ganesha are placed on raised platforms in homes or in elaborately decorated outdoor tents. The worship begins with the pranapratishtha, a ritual to invoke life in the idols, followed by shhodashopachara, or the 16 ways of paying tribute. Amid the chanting of Vedic hymns from religious texts like the Ganesh Upanishad, the idols are anointed with red sandalwood paste and yellow and red flowers. Ganesha is also offered coconut, jaggery, and 21 modaks (sweet dumplings), considered to be Ganesha’s favourite food.</p><p>At the conclusion of the festival, the idols are carried to local rivers in huge processions accompanied by drumbeats, devotional singing, and dancing. There they are immersed, a ritual symbolizing Ganesha’s homeward journey to Mount Kailas—the abode of his parents, Shiva and Parvati</p></td>
+                    </tr>
+                </table>
+                </center> 
+            </div>
+        </div>
+    </div>
+    <div id="identity2" class="class1" >
+        <div class="w3-animate-zoom">
+            <div class="class1-inner">
+                <span onclick="Closing()" class="close"><i class="fa-solid fa-xmark"></i></span>
+                <center>
+                    <box>Ramjan</box>
+                    <table>
+                    <tr >
+                        <td><img style="border-radius: 10%;" src="https://gumlet.assettype.com/Prabhatkhabar%2F2020-04%2F6f43bf2c-658f-4c36-9542-6a3f51db8d70%2F1111.jpg?rect=0%2C43%2C1203%2C677&format=webp&w=400&dpr=2.6" height="200" width="300"></td>
+                        <td><p>The ninth month of the Islamic Calendar, a month of strict spiritual discipline to commemorate the first revelation of the Holy Quran to Mohammed, the month during which severe norms for fasting is enforced as a pathway for reaching the ultimate eternity is the month of Ramadan, Romanized as Ramzan. The word Ramadan in Arabic means extreme dryness and intolerable heat. In the Gregorian calendar, this falls between the months of July and August.</p><p>The festival is so popular across the world because of the prevailing practices among the Islamic People. Whenever you hear the word Ramadan, you are immediately reminded of the fasting the Muslims adhere to strictly. As for as the Islamic beliefs are concerned, the fasting is an act of spiritual purification of the mind and the body.</p></td>
+                    </tr>
+                </table>
+                </center> 
+            </div>
+        </div>
+    </div>
+    <div id="identity3" class="class1" >
+        <div class="w3-animate-zoom">
+            <div class="class1-inner">
+                <span onclick="Closing()" class="close"><i class="fa-solid fa-xmark"></i></span>
+                <center>
+                    <box>Dasara</box>
+                    <table>
+                    <tr >
+                        <td><img src="https://media.istockphoto.com/id/461790589/photo/durga-puja-festival.jpg?s=612x612&w=0&k=20&c=lLzbiOfN21xji8QQZw6dE3OMouTnSEPBepF2w7PIFPA=" height="200" width="300"></td>
+                        <td><p>Dussehra, also called Dasara or Vijayadashami, in Hinduism, holiday marking the triumph of Rama, an avatar of Vishnu, over the 10-headed demon king Ravana, who abducted Rama’s wife, Sita. The festival’s name is derived from the Sanskrit words dasha (“ten”) and hara (“defeat”). Symbolizing the victory of good over evil, Dussehra is celebrated on the 10th day of the month of Ashvina (September–October), the seventh month of the Hindu calendar, with the appearance of the full moon, an event called the “bright fortnight” (shukla paksha). Dussehra coincides with the culmination of the nine-day Navratri festival and with the tenth day of the Durga Puja festival. For many, it marks the beginning of preparation for Diwali, which occurs 20 days after Dussehra.</p><p>Dussehra is celebrated with great fervour and fanfare. In North India, it incorporates Ram Lila, a gala theatrical enactment of Rama’s life story. </p></td>
+                    </tr>
+                </table>
+                </center> 
+            </div>
+        </div>
+    </div>
+    <div id="identity4" class="class1" >
+        <div class="w3-animate-zoom">
+            <div class="class1-inner">
+                <span onclick="Closing()" class="close"><i class="fa-solid fa-xmark"></i></span>
+                <center>
+                    <box>Diwali</box>
+                    <table>
+                    <tr >
+                        <td><img style="border-radius: 10%;" src="https://images.unsplash.com/photo-1577083753695-e010191bacb5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8ZGl3YWxpfGVufDB8fDB8fA%3D%3D&w=1000&q=80" height="200" width="300"></td>
+                        <td><p>The festive time of “Deepavali”, The Festival of Lights marks new beginnings and the triumph of good over evil, and light over darkness. Also popular as Deepawali or Diwali the ‘Festival of Lights’ coincides with harvest and new year celebrations.</p><p>When we ignite a candle or an oil / ghee lamp, it is to open light in the physical space. Similarly, on the auspicious occasion of Deepavali when blessed candles and lamps are lite, they illuminate the energetic pathway to Open the Light within us. That is why for seekers of Light, Deepavali has a special significance and value as it is a once in a year opportunity. The festivity of lights reminds us of the importance of knowledge, significance of understanding self and knowing and seeking the good and right pathway. Deepavali is the celebration of our inner light over spiritual darkness, of knowledge over ignorance and right over wrong.</p></td>
+                    </tr>
+                </table>
+                </center> 
+            </div>
+        </div>
+    </div>
+    <div id="identity5" class="class1" >
+        <div class="w3-animate-zoom">
+            <div class="class1-inner">
+                <span onclick="Closing()" class="close"><i class="fa-solid fa-xmark"></i></span>
+                <center>
+                    <box>Christams</box>
+                    <table>
+                    <tr >
+                        <td><img style="border-radius: 10%;" src="https://www.tamilnadutourism.com/blog/wp-content/uploads/2019/11/Christams-768x395.jpg" height="200" width="300"></td>
+                        <td><p>Many Christians in India celebrate Jesus Christ's birth on on Christmas Day, which is annually held on December 25. The celebrations are most noticeable in states where there are many Christians. Christmas Day is a gazetted holiday in India</p><p>Many Christians mark Christmas Day by attending special church services, spending time with family members, wearing new clothes and eating a festive meal. Some families exchange gifts or give small presents or sweets to children. They may display small electric lamps or small clay oil-burning lamps and decorate their homes with banana or mango leaves. Some also put up a nativity scene with clay figures or a Christmas tree. Christmas trees in India are usually imitation pine trees or branches of native trees or bushes. Some stores and malls may put up Christmas decorations and have actors playing Santa.</p></td>
+                    </tr>
+                </table>
+                </center> 
+            </div>
+        </div>
+    </div>
+    <div id="identity6" class="class1" >
+        <div class="w3-animate-zoom">
+            <div class="class1-inner">
+                <span onclick="Closing()" class="close"><i class="fa-solid fa-xmark"></i></span>
+                <center>
+                    <box>Sankranthi</box>
+                    <table>
+                    <tr >
+                        <td><img style="border-radius: 10%;" src="https://gumlet.assettype.com/indiansingulf%2F2020-01%2F83fe46c3-0201-404f-b582-68854709e715%2FBhogi.webp?rect=0%2C21%2C700%2C394&auto=format%2Ccompress&fit=max&format=webp&w=480&dpr=2.6" height="200" width="300"></td>
+                        <td><p>Sankranthi Is the Festival Which is Celebrated in the month January and It is majourly celebrated in Telugu states (AndraPradesh & Telengana). Sankranthi Festival consists of three days. They are Bhogi ,Makara Sankranthi , Kanuma</p><center><sub style="font-size: 30px;">Bhogi</sub></center><p>    The First day celebrated in Sankranthi is called 'Bhogi' . The Bhogi festival is celebrated in honour of Lord Indra who is also known as the god of rain . It is usually celebrated on 13th January .  on this day people will WokeUp early and they will wore New cloths and Devote to 'Bonfire'.</p></td>
+                    </tr>
+                </table>
+                </center>
+                <center>
+                    <table>
+                        <tr>
+                            <td><p><center><sub style="font-size: 30px;">Makara Sankranthi</sub></center><p>Makar means Capricorn and Sankranti means transition, which makes Makar Sankranti means the transition of the sun in the Capricorn (Zodiac sign). In addition, this occasion is a very sacred and auspicious occasion according to Hinduism and they celebrate it as a festival.</p><center><sub style="font-size: 30px;">Kanuma </sub></center><p>Kanuma, the third day of Sankranti, was celebrated with traditional fervour and joy. Worship of cattle, merry-making and feasts marked the festival, dedicated to cattle that help people in agricultural activities. The day also signifies the lifting of the Govardhan hill by Lord Krishna to protect the people of Gokulam</p></td>
+                            <td><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQbe67zN9vcE5CDuuTsbEAGZgrkLdK7APGKdkQ2vtbMBwlFzDvaw10PGdTLIZpuMQBxCg&usqp=CAU" height="200" width="300"></td>
+                        </tr>
+                    </table>
+                </center> 
+            </div>
+        </div>
+    </div>
+    <div id="identity7" class="class1" >
+        <div class="w3-animate-zoom">
+            <div class="class1-inner">
+                <span onclick="Closing()" class="close"><i class="fa-solid fa-xmark"></i></span>
+                <center>
+                    <box>Onam</box>
+                    <table>
+                    <tr >
+                        <td><img style="border-radius: 10%;" src="http://twocircles.net/wp-content/uploads/2019/09/Snake-Boat-Race-in-Kerala.jpg" height="200" width="300"></td>
+                        <td><p>Onam is an annual Indian harvest festival celebrated predominantly by the Hindus of Kerala.A major annual event for Keralites, it is the official festival of the state and includes a spectrum of cultural events</p><p>Onam commemorates Vamana and King Mahabali. According to Hindu legends, Remembrance of the good governance under the rule of king Mahabali. Vamana asked Mahabali for three feet of land as his wish from the generous Mahabali. Since denying gifts to Brahmin is considered a sacrilege, Mahabali agreed to fulfill Vamana’s wish. In the first two feet Vamana measured the entirety of universe, leaving nowhere to place his third foot. Mahabali offered his own head to place his third feet making the wish complete. However, witnessing Mahabali’s generosity, Vishnu granted the king's sole wish to visit his land and people once every year. This homecoming of Mahabali is celebrated as Onam in Kerala every year.</p></td>
+                    </tr>
+                </table>
+                </center> 
+            </div>
+        </div>
+    </div>
+    <script>
+        function Inwoke(){
+         document.getElementById("DDC").classList.toggle("show");
+        }
+        function SearchFun() {
+            var input, filter, ul, li, a, i;
+            input = document.getElementById("Input");
+            filter = input.value.toUpperCase();
+            div = document.getElementById("DDC");
+            a = div.getElementsByTagName("a");
+            for (i = 0; i < a.length; i++) {
+                txtValue = a[i].textContent || a[i].innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    a[i].style.display = "";
+                } else {
+                    a[i].style.display = "none";
+                }
+            }
+        }
+        let Index = 0;
+        fun();
+        function fun(){
+            let x = document.getElementsByClassName("pic");
+            for(let i = 0 ; i < x.length ; i++ ){
+                x[i].style.display = "none";
+            }
+            Index++;
+            if (Index > x.length){
+                Index = 1;
+            }
+            x[Index-1].style.display="block";
+            setTimeout(fun,3000);
+        }
+
+        function OpenSide(){
+            document.getElementById("sideBar").style.width = "250px";
+            document.getElementById("main").style.marginLeft = "250px";
+        }
+        function exitFun(){
+            document.getElementById("sideBar").style.width = "0";
+            document.getElementById("main").style.marginLeft = "0";
+        }
+        var popup1 = document.getElementById("identity1");
+        var popup2 = document.getElementById("identity2");
+        var popup3 = document.getElementById("identity3");
+        var popup4 = document.getElementById("identity4");
+        var popup5 = document.getElementById("identity5");
+        var popup6 = document.getElementById("identity6");
+        var popup7 = document.getElementById("identity7");
+        var pop1 = document.getElementById("C1");
+        var pop2 = document.getElementById("C2");
+        var pop3 = document.getElementById("C3");
+        var pop4 = document.getElementById("C4");
+        var pop5 = document.getElementById("C5");
+        var pop6 = document.getElementById("C6");
+        var pop7 = document.getElementById("C7");
+        var span = document.getElementsByClassName("close");
+        function Ganesh(){
+            popup1.style.display = "block";
+        }
+        function Ramjan(){
+            popup2.style.display = "block";
+        }
+        function Dasara(){
+            popup3.style.display = "block";
+        }
+        function Diwali(){
+            popup4.style.display = "block";
+        }
+        function Christmas(){
+            popup5.style.display = "block";
+        }
+        function Sankranthi(){
+            popup6.style.display = "block";
+        }
+        function Onam(){
+            popup7.style.display = "block";
+        }
+        function Closing(){
+            popup7.style.display = "none";
+            popup6.style.display = "none";
+            popup5.style.display = "none";
+            popup4.style.display = "none";
+            popup3.style.display = "none";
+            popup2.style.display = "none";
+            popup1.style.display = "none";
+        }
+    </script>
+    </body>
+</html>  
